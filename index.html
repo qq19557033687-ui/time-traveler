@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>时间旅人 — 在文字中穿越时光</title>
-  <meta name="description" content="时间旅人，一个关于记忆、时光与日常碎片的文字博客。">
+  <title>时间旅人 — 在加速的时代里，选择慢下来</title>
+  <meta name="description" content="时间旅人是一个极简黑白美学的静态博客，收集关于时间、记忆、旅行与生活的文字。">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,35 +16,30 @@
 
   <div class="progress-bar"></div>
 
-  <!-- ========== Header ========== -->
-  <header class="site-header">
-    <a href="index.html" class="logo">
-      <span class="dot"></span>
-      时间旅人
-    </a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">首页</a></li>
-        <li><a href="#posts">文章</a></li>
-        <li><a href="about.html">关于</a></li>
-      </ul>
-    </nav>
+  <!-- ========== Nav ========== -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">时间旅人</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">首页</a></li>
+      <li><a href="#articles">文章</a></li>
+      <li><a href="about.html">关于</a></li>
+    </ul>
     <button class="nav-toggle" aria-label="菜单">
       <span></span><span></span><span></span>
     </button>
-  </header>
+  </nav>
 
   <!-- ========== Hero ========== -->
   <section class="hero">
-    <p class="hero-eyebrow fade-in">A Journal of Time &amp; Memory</p>
+    <p class="hero-eyebrow fade-in">A Journal of Slow Living</p>
     <h1 class="hero-title fade-in">时间旅人</h1>
-    <p class="hero-subtitle fade-in" id="typewriter" data-text="在文字中穿越时光，于日常里拾起永恒。">在文字中穿越时光，于日常里拾起永恒。</p>
+    <p class="hero-subtitle fade-in">在加速的时代里，我们选择慢下来。这里收集关于时间、记忆、旅行与生活的文字——每一篇，都是一次对当下的凝视。</p>
 
     <div class="hero-divider"></div>
 
     <p class="hero-meta fade-in">
       <span id="live-clock">--:--:--</span>
-      <span style="margin: 0 0.8rem; opacity: 0.3;">|</span>
+      <span style="margin: 0 0.6rem; opacity: 0.3;">|</span>
       <span>此刻，即是旅途</span>
     </p>
 
@@ -54,95 +49,94 @@
     </div>
   </section>
 
-  <!-- ========== Post List ========== -->
-  <section class="section" id="posts">
+  <!-- ========== Featured ========== -->
+  <section class="featured">
+    <div class="featured-inner">
+      <p class="featured-label fade-in">本期推荐</p>
+      <a href="posts/dawn-silence.html" class="featured-card fade-in">
+        <p class="featured-category">随笔 · Essay</p>
+        <h2 class="featured-title">黎明前的寂静</h2>
+        <p class="featured-excerpt">凌晨四点的城市尚未苏醒，万物在黑暗中屏息。那一刻的寂静并非空无，而是某种蓄势待发的张力——时间正以最缓慢的方式，酝酿着一场盛大的开场。</p>
+        <p class="featured-date">2026/06/28</p>
+        <span class="featured-read">阅读全文</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== Article List ========== -->
+  <section class="section" id="articles">
     <div class="section-inner">
-      <p class="section-label fade-in">Recent Writings</p>
-      <h2 class="section-title fade-in">最新文章</h2>
+      <p class="section-label fade-in">All Articles</p>
+      <h2 class="section-title fade-in">全部文章</h2>
 
-      <ul class="post-list">
+      <div class="article-list">
 
-        <li class="post-item fade-in">
-          <a href="posts/time-and-memory.html" style="display: contents;">
-            <div class="post-item-inner">
-              <span class="post-date">2026.06.28</span>
-              <div class="post-content">
-                <h3 class="post-title">时间与记忆的褶皱</h3>
-                <p class="post-excerpt">记忆并非一条直线，而是折叠的纸。你以为翻过了那一页，却在多年后发现，它一直藏在某个褶皱里，等你弯腰拾起。我们以为自己在前进，其实只是在时间中打转……</p>
-                <div class="post-tags">
-                  <span>随笔</span><span>记忆</span><span>哲学</span>
-                </div>
-              </div>
-              <span class="post-arrow">&rarr;</span>
+        <a href="posts/letters-from-the-road.html" class="article-card fade-in" style="display: flex;">
+          <div class="article-number">02</div>
+          <div class="article-info">
+            <p class="article-category">旅行 · Travel</p>
+            <h3 class="article-title">来自路上的信</h3>
+            <p class="article-excerpt">真正的旅行不在于抵达多远的地方，而在于我们如何重新丈量脚下的每一寸土地。当脚步慢下来，世界便以另一种尺度向你展开。</p>
+            <div class="article-bottom">
+              <span class="article-date">2026/06/15</span>
+              <span class="article-read">阅读全文</span>
             </div>
-          </a>
-        </li>
+          </div>
+        </a>
 
-        <li class="post-item fade-in">
-          <a href="posts/midnight-letters.html" style="display: contents;">
-            <div class="post-item-inner">
-              <span class="post-date">2026.06.15</span>
-              <div class="post-content">
-                <h3 class="post-title">午夜信件</h3>
-                <p class="post-excerpt">深夜两点，我给一个不会再回信的人写信。不是为了寄出，只是为了在黑暗中确认——那些未曾说出口的话，是否还算数。灯亮着，笔停着，窗外是整个沉睡的城市……</p>
-                <div class="post-tags">
-                  <span>散文</span><span>夜</span><span>书信</span>
-                </div>
-              </div>
-              <span class="post-arrow">&rarr;</span>
+        <a href="posts/art-of-slowing-down.html" class="article-card fade-in" style="display: flex;">
+          <div class="article-number">03</div>
+          <div class="article-info">
+            <p class="article-category">生活 · Life</p>
+            <h3 class="article-title">慢下来的艺术</h3>
+            <p class="article-excerpt">当所有人都在谈论效率与速度，慢反而成了一种稀缺的能力。它不是懒惰，而是一种清醒的选择——选择把注意力交还给当下。</p>
+            <div class="article-bottom">
+              <span class="article-date">2026/05/30</span>
+              <span class="article-read">阅读全文</span>
             </div>
-          </a>
-        </li>
+          </div>
+        </a>
 
-        <li class="post-item fade-in">
-          <a href="posts/window-light.html" style="display: contents;">
-            <div class="post-item-inner">
-              <span class="post-date">2026.05.30</span>
-              <div class="post-content">
-                <h3 class="post-title">窗外的光</h3>
-                <p class="post-excerpt">下午四点的光线穿过百叶窗，在地板上画出平行的金线。我坐在那里看了一整个下午，什么也没做。后来才明白，那不是浪费——那是一个下午在认真地经过我……</p>
-                <div class="post-tags">
-                  <span>随笔</span><span>日常</span><span>光影</span>
-                </div>
-              </div>
-              <span class="post-arrow">&rarr;</span>
+        <a href="posts/memory-and-time.html" class="article-card fade-in" style="display: flex;">
+          <div class="article-number">04</div>
+          <div class="article-info">
+            <p class="article-category">思考 · Thought</p>
+            <h3 class="article-title">记忆与时间的褶皱</h3>
+            <p class="article-excerpt">记忆从来不是对过去的忠实记录，而是每一次回忆时重新编织的故事。时间在记忆里折叠、拉伸、变形，最终塑造出我们以为的"真实"。</p>
+            <div class="article-bottom">
+              <span class="article-date">2026/05/12</span>
+              <span class="article-read">阅读全文</span>
             </div>
-          </a>
-        </li>
+          </div>
+        </a>
 
-        <li class="post-item fade-in">
-          <a href="posts/time-and-memory.html" style="display: contents;">
-            <div class="post-item-inner">
-              <span class="post-date">2026.05.12</span>
-              <div class="post-content">
-                <h3 class="post-title">雨天的咖啡馆</h3>
-                <p class="post-excerpt">每个城市都该有一间雨天咖啡馆——门口的伞架永远湿着，咖啡机低沉地响着，人们各坐各的，像一座座孤岛，又被同一阵雨声连成大陆。我总是点一杯美式，坐到雨停……</p>
-                <div class="post-tags">
-                  <span>散文</span><span>城市</span><span>咖啡</span>
-                </div>
-              </div>
-              <span class="post-arrow">&rarr;</span>
+        <a href="posts/color-of-night.html" class="article-card fade-in" style="display: flex;">
+          <div class="article-number">05</div>
+          <div class="article-info">
+            <p class="article-category">随笔 · Essay</p>
+            <h3 class="article-title">夜的颜色</h3>
+            <p class="article-excerpt">我们习惯用"黑"来概括夜晚，但如果你愿意凝视，会发现黑暗里藏着无数种灰度、蓝调与微光。夜，远比想象中丰富。</p>
+            <div class="article-bottom">
+              <span class="article-date">2026/04/22</span>
+              <span class="article-read">阅读全文</span>
             </div>
-          </a>
-        </li>
+          </div>
+        </a>
 
-        <li class="post-item fade-in">
-          <a href="posts/midnight-letters.html" style="display: contents;">
-            <div class="post-item-inner">
-              <span class="post-date">2026.04.20</span>
-              <div class="post-content">
-                <h3 class="post-title">旧物志</h3>
-                <p class="post-excerpt">外婆的搪瓷杯、父亲的老钢笔、一张褪色的火车票——旧物是凝固的时间。它们不说话，但你拿起它们的那一刻，某段往事就会自动播放。我们留住的从来不是东西，是那个时刻的自己……</p>
-                <div class="post-tags">
-                  <span>随笔</span><span>旧物</span><span>回忆</span>
-                </div>
-              </div>
-              <span class="post-arrow">&rarr;</span>
+        <a href="posts/on-writing.html" class="article-card fade-in" style="display: flex;">
+          <div class="article-number">06</div>
+          <div class="article-info">
+            <p class="article-category">写作 · Writing</p>
+            <h3 class="article-title">关于写作</h3>
+            <p class="article-excerpt">写作不是为了证明什么，而是为了留住那些转瞬即逝的念头。当文字落在纸上，时间便被折叠进了一个可以反复打开的容器。</p>
+            <div class="article-bottom">
+              <span class="article-date">2026/04/05</span>
+              <span class="article-read">阅读全文</span>
             </div>
-          </a>
-        </li>
+          </div>
+        </a>
 
-      </ul>
+      </div>
     </div>
   </section>
 
@@ -158,7 +152,7 @@
         <ul class="footer-links">
           <li><a href="index.html">首页</a></li>
           <li><a href="about.html">关于</a></li>
-          <li><a href="https://github.com" target="_blank">GitHub</a></li>
+          <li><a href="https://github.com/qq19557033687-ui/time-traveler" target="_blank">GitHub</a></li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,5 @@
 // ============================================
-// 时间旅人 — 交互脚本
+// 时间旅人 — 交互脚本 v2
 // ============================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateProgress();
   }
 
-  // ---- Header shrink on scroll ----
-  const header = document.querySelector(".site-header");
-  if (header) {
+  // ---- Nav shrink on scroll ----
+  const nav = document.querySelector(".site-nav");
+  if (nav) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 40) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
+      if (window.scrollY > 40) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
     }, { passive: true });
   }
 
@@ -53,11 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-
     fadeElements.forEach(el => observer.observe(el));
   }
 
-  // ---- Live clock in hero ----
+  // ---- Live clock ----
   const clock = document.querySelector("#live-clock");
   if (clock) {
     const updateClock = () => {
@@ -71,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateClock, 1000);
   }
 
-  // ---- Typewriter effect for hero subtitle ----
+  // ---- Typewriter ----
   const typewriter = document.querySelector("#typewriter");
   if (typewriter) {
     const text = typewriter.dataset.text || typewriter.textContent;
