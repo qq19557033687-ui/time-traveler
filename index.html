@@ -214,7 +214,7 @@
 
       loadArticlesManifest().then(function (articles) {
         // Sort by order
-        articles.sort(function (a, b) { return (a.order || 99) - (b.order || 99); });
+        articles.sort(function (a, b) { return (a.order ?? 99) - (b.order ?? 99); });
         if (articles.length > 0) {
           renderFeatured(articles[0]);
           renderArchive(articles);
