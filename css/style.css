@@ -381,6 +381,7 @@ ul, ol {
   z-index: 2;
   animation: bleed-main-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
+.bleed-main-prefix { display: none; }
 @keyframes bleed-char-in {
   from { opacity: 0; transform: translateY(30px) scale(0.97); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
@@ -1224,4 +1225,57 @@ ul, ol {
 }
 @media (min-width: 768px) {
   .section-pad { padding: 8rem 2.5rem; }
+}
+
+/* ---------- Mobile Hero Optimization ---------- */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 100svh;
+    padding: 5rem 1.25rem 2rem;
+    justify-content: space-between;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.25em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title-bleed {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  /* 移动端隐藏背景大字，避免喧宾夺主并减少空白 */
+  .bleed-shi,
+  .bleed-jian {
+    display: none;
+  }
+
+  .bleed-main {
+    font-size: 18vw;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* 移动端显示完整标题“时间旅人” */
+  .bleed-main-prefix {
+    display: inline;
+  }
+
+  .hero-bottom {
+    padding-top: 1.25rem;
+    gap: 1rem;
+  }
+
+  .hero-bottom-desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  .hero-bottom-cta {
+    justify-content: flex-start;
+  }
 }
