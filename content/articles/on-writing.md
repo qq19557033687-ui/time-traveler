@@ -6,7 +6,7 @@ readTime: 6 分钟
 category: 写作
 cover: https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_217ca992-2ace-4565-a4eb-19ef823544d9.jpg
 excerpt: 写作不是为了证明什么，而是为了留住那些转瞬即逝的念头。当文字落在纸上，时间便被折叠进了一个可以反复打开的容器。
-order: 6
+order: 7
 ---
 
 我写作的起点往往很随意——一个突然冒出的句子，一段挥之不去的旋律，或者只是窗外某棵树在风中的姿态。我不等待灵感，因为灵感从不预约。我只是坐下来，打开本子，让笔尖接触纸面，然后看看会发生什么。

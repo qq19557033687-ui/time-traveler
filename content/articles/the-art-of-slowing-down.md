@@ -6,7 +6,7 @@ readTime: 5 分钟
 category: 生活
 cover: https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_3ec5ae84-711c-4284-ad03-ea97161b627f.jpg
 excerpt: 当所有人都在谈论效率与速度，慢反而成了一种稀缺的能力。它不是懒惰，而是一种清醒的选择——选择把注意力交还给当下。
-order: 3
+order: 4
 ---
 
 我们生活在一个被速度定义的时代。消息要秒回，视频要倍速，外卖要准时。效率成了最高美德，而"慢"几乎等同于失败。但当我试着在一个周末关掉所有通知，只是读一本书、泡一壶茶、看窗外的云移动，我发现了一种久违的平静。
