@@ -368,11 +368,13 @@ ul, ol {
 }
 .bleed-main {
   position: relative;
+  display: inline-block;
+  white-space: nowrap;
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 22vw;
   color: hsl(var(--background));
-  line-height: 0.85;
+  line-height: 1;
   letter-spacing: -0.05em;
   margin-right: 5%;
   margin-bottom: 10%;
