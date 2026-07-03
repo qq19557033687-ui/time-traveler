@@ -2,9 +2,9 @@ backend:
   name: github
   repo: qq19557033687-ui/time-traveler
   branch: main
-  # OAuth configuration - you need to register a GitHub OAuth App
+  # OAuth configuration via Netlify OAuth provider
   # See: https://decapcms.org/docs/github-backend/
-  base_url: https://api.netlify.com  # Netlify OAuth proxy (free)
+  base_url: https://shiny-pony-dc1588.netlify.app
 
 media_folder: images
 public_folder: images
