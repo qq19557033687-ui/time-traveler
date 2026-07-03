@@ -63,6 +63,10 @@
   function renderArticle(meta) {
     // Set page title
     document.title = meta.title + ' · 时间旅人';
+
+    // Set layered background title
+    var bgTitleEl = document.getElementById('layered-bg-title');
+    if (bgTitleEl) bgTitleEl.textContent = meta.title;
     // Set meta description
     var descEl = document.querySelector('meta[name="description"]');
     if (descEl) descEl.setAttribute('content', meta.subtitle || meta.excerpt);
