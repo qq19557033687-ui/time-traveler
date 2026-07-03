@@ -88,6 +88,9 @@
     reveals.forEach(function (el) { observer.observe(el); });
   }
 
+  // Expose for dynamic loaders (homepage, article page)
+  window.initReveal = initReveal;
+
   // ---------- slideUp Animation (Hero Title) ----------
   function initSlideUp() {
     var slideEls = document.querySelectorAll('.slide-up-inner');

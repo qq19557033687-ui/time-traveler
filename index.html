@@ -224,7 +224,13 @@
           renderArchive(articles);
         }
         // Re-init animations after dynamic content is loaded
-        if (window.initReveal) window.initReveal();
+        requestAnimationFrame(function () {
+          if (window.initReveal) window.initReveal();
+          // Fallback: ensure dynamically added reveals become visible
+          document.querySelectorAll('.reveal:not(.revealed)').forEach(function (el) {
+            el.classList.add('revealed');
+          });
+        });
         // Re-init magnetic
         document.querySelectorAll('[data-magnetic]').forEach(function (el) {
           // Magnetic is already handled by main.js event listeners (mouseover/mouseout)
