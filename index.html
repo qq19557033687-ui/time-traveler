@@ -6,29 +6,30 @@
   <title>时间旅人 · A Journal of Time</title>
   <meta name="description" content="在加速的时代里，我们选择慢下来。这里收集关于时间、记忆、旅行与生活的文字。">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="js/renderer.js"></script>
 </head>
 <body class="grain">
 
-  <!-- Custom Cursor -->
   <div class="cursor-dot"></div>
 
   <!-- Header -->
   <header class="site-header">
     <div class="container-wide px-page">
       <div class="site-header-inner">
-        <a href="/" class="logo-mark" data-magnetic>
+        <a href="index.html" class="logo-mark" data-magnetic>
           <span class="dot"></span>
           <span class="name">时间旅人</span>
         </a>
         <nav class="site-nav">
-          <a href="/" class="link-underline" data-magnetic>文章</a>
+          <a href="index.html" class="link-underline" data-magnetic>文章</a>
           <a href="#about" class="link-underline hidden-mobile" data-magnetic>关于</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- Hero — 纯黑全屏，超大标题 -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container-wide w-full">
       <div class="reveal">
@@ -61,177 +62,29 @@
     </div>
   </section>
 
-  <!-- Featured — 非对称编辑布局 -->
+  <!-- Featured -->
   <section id="articles" class="featured-section">
     <div class="container-wide px-page section-pad">
       <div class="reveal featured-header">
         <p class="featured-eyebrow">Featured / 01</p>
         <h2 class="featured-title">本期推荐</h2>
       </div>
-
-      <a href="posts/the-quiet-of-dawn.html" class="featured-card group" data-magnetic style="display:block;">
-        <div class="featured-grid">
-          <div class="reveal featured-image-wrap">
-            <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_9f941e20-e468-49f2-9cb9-1e37b4584b3b.jpg" alt="黎明前的寂静" class="photo-mono">
-          </div>
-          <div class="reveal featured-text-card" data-delay="200">
-            <p class="category">随笔</p>
-            <h3 class="title">黎明前的寂静</h3>
-            <p class="excerpt">凌晨四点的城市尚未苏醒，万物在黑暗中屏息。那一刻的寂静并非空无，而是某种蓄势待发的张力——时间正以最缓慢的方式，酝酿着一场盛大的开场。</p>
-            <div class="meta">
-              <span class="date">2026/06/28</span>
-              <span class="read">
-                阅读
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-      </a>
+      <div id="featured-card"></div>
     </div>
   </section>
 
-  <!-- Archive — 错位列表 -->
+  <!-- Archive -->
   <section class="archive-section">
     <div class="container-wide px-page section-pad">
       <div class="reveal archive-header">
-        <p class="archive-eyebrow">Archive / 05</p>
+        <p class="archive-eyebrow" id="archive-eyebrow">Archive</p>
         <h2 class="archive-title">全部文章</h2>
       </div>
-
-      <div class="archive-list">
-        <!-- Article 02 -->
-        <div class="reveal" data-delay="0">
-          <a href="posts/letters-from-the-road.html" class="archive-item even" data-magnetic>
-            <div class="archive-item-grid">
-              <div class="archive-item-image">
-                <img src="https://miaoda-image.bj.bcebos.com/pexel_round1/01/pexels_468911_11510235.jpg" alt="来自路上的信" class="photo-mono">
-              </div>
-              <div class="archive-item-text">
-                <div class="archive-num-row">
-                  <span class="archive-num">02</span>
-                  <div class="archive-num-line"></div>
-                </div>
-                <p class="category">旅行</p>
-                <h3 class="title">来自路上的信</h3>
-                <p class="excerpt">真正的旅行不在于抵达多远的地方，而在于我们如何重新丈量脚下的每一寸土地。当脚步慢下来，世界便以另一种尺度向你展开。</p>
-                <div class="meta">
-                  <span class="date">2026/06/15</span>
-                  <span class="dot-sep"></span>
-                  <span class="link-underline">阅读全文</span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Article 03 -->
-        <div class="reveal" data-delay="100">
-          <a href="posts/the-art-of-slowing-down.html" class="archive-item odd" data-magnetic>
-            <div class="archive-item-grid">
-              <div class="archive-item-text">
-                <div class="archive-num-row">
-                  <span class="archive-num">03</span>
-                  <div class="archive-num-line"></div>
-                </div>
-                <p class="category">生活</p>
-                <h3 class="title">慢下来的艺术</h3>
-                <p class="excerpt">当所有人都在谈论效率与速度，慢反而成了一种稀缺的能力。它不是懒惰，而是一种清醒的选择——选择把注意力交还给当下。</p>
-                <div class="meta">
-                  <span class="date">2026/05/30</span>
-                  <span class="dot-sep"></span>
-                  <span class="link-underline">阅读全文</span>
-                </div>
-              </div>
-              <div class="archive-item-image">
-                <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_3ec5ae84-711c-4284-ad03-ea97161b627f.jpg" alt="慢下来的艺术" class="photo-mono">
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Article 04 -->
-        <div class="reveal" data-delay="0">
-          <a href="posts/memory-and-time.html" class="archive-item even" data-magnetic>
-            <div class="archive-item-grid">
-              <div class="archive-item-image">
-                <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_d7841251-8757-4b43-ac22-bf972f4339f8.jpg" alt="记忆与时间的褶皱" class="photo-mono">
-              </div>
-              <div class="archive-item-text">
-                <div class="archive-num-row">
-                  <span class="archive-num">04</span>
-                  <div class="archive-num-line"></div>
-                </div>
-                <p class="category">思考</p>
-                <h3 class="title">记忆与时间的褶皱</h3>
-                <p class="excerpt">记忆从来不是对过去的忠实记录，而是每一次回忆时重新编织的故事。时间在记忆里折叠、拉伸、变形，最终塑造出我们以为的"真实"。</p>
-                <div class="meta">
-                  <span class="date">2026/05/12</span>
-                  <span class="dot-sep"></span>
-                  <span class="link-underline">阅读全文</span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Article 05 -->
-        <div class="reveal" data-delay="100">
-          <a href="posts/the-color-of-night.html" class="archive-item odd" data-magnetic>
-            <div class="archive-item-grid">
-              <div class="archive-item-text">
-                <div class="archive-num-row">
-                  <span class="archive-num">05</span>
-                  <div class="archive-num-line"></div>
-                </div>
-                <p class="category">随笔</p>
-                <h3 class="title">夜的颜色</h3>
-                <p class="excerpt">我们习惯用"黑"来概括夜晚，但如果你愿意凝视，会发现黑暗里藏着无数种灰度、蓝调与微光。夜，远比想象中丰富。</p>
-                <div class="meta">
-                  <span class="date">2026/04/22</span>
-                  <span class="dot-sep"></span>
-                  <span class="link-underline">阅读全文</span>
-                </div>
-              </div>
-              <div class="archive-item-image">
-                <img src="https://miaoda-image.bj.bcebos.com/pixabay_round1/01/pixabay_170604_1868135.jpg" alt="夜的颜色" class="photo-mono">
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Article 06 -->
-        <div class="reveal" data-delay="0">
-          <a href="posts/on-writing.html" class="archive-item even" data-magnetic>
-            <div class="archive-item-grid">
-              <div class="archive-item-image">
-                <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_217ca992-2ace-4565-a4eb-19ef823544d9.jpg" alt="关于写作" class="photo-mono">
-              </div>
-              <div class="archive-item-text">
-                <div class="archive-num-row">
-                  <span class="archive-num">06</span>
-                  <div class="archive-num-line"></div>
-                </div>
-                <p class="category">写作</p>
-                <h3 class="title">关于写作</h3>
-                <p class="excerpt">写作不是为了证明什么，而是为了留住那些转瞬即逝的念头。当文字落在纸上，时间便被折叠进了一个可以反复打开的容器。</p>
-                <div class="meta">
-                  <span class="date">2026/04/05</span>
-                  <span class="dot-sep"></span>
-                  <span class="link-underline">阅读全文</span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+      <div class="archive-list" id="archive-list"></div>
     </div>
   </section>
 
-  <!-- 反色关于块 -->
+  <!-- About -->
   <section id="about" class="about-section">
     <div class="container-wide px-page section-pad">
       <div class="about-grid">
@@ -270,5 +123,114 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // ---------- Homepage Dynamic Loader ----------
+    (function () {
+      'use strict';
+
+      function loadArticlesManifest() {
+        return fetch('content/articles.json')
+          .then(function (res) { return res.json(); })
+          .catch(function () {
+            // Fallback: hard-coded list
+            return [
+              { id: 'the-quiet-of-dawn', title: '黎明前的寂静', subtitle: '关于时间、等待与第一缕光', date: '2026-06-28', readTime: '6 分钟', category: '随笔', cover: 'images/dawn-street.png', excerpt: '凌晨四点的城市尚未苏醒，万物在黑暗中屏息。那一刻的寂静并非空无，而是某种蓄势待发的张力——时间正以最缓慢的方式，酝酿着一场盛大的开场。', order: 1 },
+              { id: 'letters-from-the-road', title: '来自路上的信', subtitle: '旅行如何重塑我们对距离的认知', date: '2026-06-15', readTime: '8 分钟', category: '旅行', cover: 'https://miaoda-image.bj.bcebos.com/pexel_round1/01/pexels_468911_11510235.jpg', excerpt: '真正的旅行不在于抵达多远的地方，而在于我们如何重新丈量脚下的每一寸土地。当脚步慢下来，世界便以另一种尺度向你展开。', order: 2 },
+              { id: 'the-art-of-slowing-down', title: '慢下来的艺术', subtitle: '在加速时代里寻找自己的节奏', date: '2026-05-30', readTime: '5 分钟', category: '生活', cover: 'https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_3ec5ae84-711c-4284-ad03-ea97161b627f.jpg', excerpt: '当所有人都在谈论效率与速度，慢反而成了一种稀缺的能力。它不是懒惰，而是一种清醒的选择——选择把注意力交还给当下。', order: 3 },
+              { id: 'memory-and-time', title: '记忆与时间的褶皱', subtitle: '我们如何记住，又如何遗忘', date: '2026-05-12', readTime: '7 分钟', category: '思考', cover: 'https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_d7841251-8757-4b43-ac22-bf972f4339f8.jpg', excerpt: '记忆从来不是对过去的忠实记录，而是每一次回忆时重新编织的故事。时间在记忆里折叠、拉伸、变形，最终塑造出我们以为的"真实"。', order: 4 },
+              { id: 'the-color-of-night', title: '夜的颜色', subtitle: '黑暗并非只有一种黑', date: '2026-04-22', readTime: '4 分钟', category: '随笔', cover: 'https://miaoda-image.bj.bcebos.com/pixabay_round1/01/pixabay_170604_1868135.jpg', excerpt: '我们习惯用"黑"来概括夜晚，但如果你愿意凝视，会发现黑暗里藏着无数种灰度、蓝调与微光。夜，远比想象中丰富。', order: 5 },
+              { id: 'on-writing', title: '关于写作', subtitle: '文字如何成为时间的容器', date: '2026-04-05', readTime: '6 分钟', category: '写作', cover: 'https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_217ca992-2ace-4565-a4eb-19ef823544d9.jpg', excerpt: '写作不是为了证明什么，而是为了留住那些转瞬即逝的念头。当文字落在纸上，时间便被折叠进了一个可以反复打开的容器。', order: 6 }
+            ];
+          });
+      }
+
+      function formatDate(dateStr) {
+        return dateStr.replace(/-/g, '/');
+      }
+
+      function renderFeatured(article) {
+        var container = document.getElementById('featured-card');
+        container.innerHTML =
+          '<a href="article.html?id=' + article.id + '" class="featured-card group" data-magnetic style="display:block;">' +
+          '<div class="featured-grid">' +
+          '<div class="reveal featured-image-wrap">' +
+          '<img src="' + article.cover + '" alt="' + article.title + '" class="photo-mono">' +
+          '</div>' +
+          '<div class="reveal featured-text-card" data-delay="200">' +
+          '<p class="category">' + article.category + '</p>' +
+          '<h3 class="title">' + article.title + '</h3>' +
+          '<p class="excerpt">' + article.excerpt + '</p>' +
+          '<div class="meta">' +
+          '<span class="date">' + formatDate(article.date) + '</span>' +
+          '<span class="read">阅读 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</a>';
+      }
+
+      function renderArchive(articles) {
+        var container = document.getElementById('archive-list');
+        var eyebrow = document.getElementById('archive-eyebrow');
+        if (eyebrow) eyebrow.textContent = 'Archive / ' + (articles.length - 1);
+
+        var html = '';
+        articles.slice(1).forEach(function (article, index) {
+          var num = String(article.order || (index + 2)).padStart(2, '0');
+          var isEven = index % 2 === 0; // first archive item is even
+          var sideClass = isEven ? 'even' : 'odd';
+          html += '<div class="reveal" data-delay="' + (index * 100) + '">' +
+            '<a href="article.html?id=' + article.id + '" class="archive-item ' + sideClass + '" data-magnetic>' +
+            '<div class="archive-item-grid">';
+
+          if (isEven) {
+            html += '<div class="archive-item-image">' +
+              '<img src="' + article.cover + '" alt="' + article.title + '" class="photo-mono">' +
+              '</div>';
+          }
+
+          html += '<div class="archive-item-text">' +
+            '<div class="archive-num-row">' +
+            '<span class="archive-num">' + num + '</span>' +
+            '<div class="archive-num-line"></div>' +
+            '</div>' +
+            '<p class="category">' + article.category + '</p>' +
+            '<h3 class="title">' + article.title + '</h3>' +
+            '<p class="excerpt">' + article.excerpt + '</p>' +
+            '<div class="meta">' +
+            '<span class="date">' + formatDate(article.date) + '</span>' +
+            '<span class="dot-sep"></span>' +
+            '<span class="link-underline">阅读全文</span>' +
+            '</div>' +
+            '</div>';
+
+          if (!isEven) {
+            html += '<div class="archive-item-image">' +
+              '<img src="' + article.cover + '" alt="' + article.title + '" class="photo-mono">' +
+              '</div>';
+          }
+
+          html += '</div></a></div>';
+        });
+
+        container.innerHTML = html;
+      }
+
+      loadArticlesManifest().then(function (articles) {
+        // Sort by order
+        articles.sort(function (a, b) { return (a.order || 99) - (b.order || 99); });
+        if (articles.length > 0) {
+          renderFeatured(articles[0]);
+          renderArchive(articles);
+        }
+        // Re-init animations after dynamic content is loaded
+        if (window.initReveal) window.initReveal();
+        // Re-init magnetic
+        document.querySelectorAll('[data-magnetic]').forEach(function (el) {
+          // Magnetic is already handled by main.js event listeners (mouseover/mouseout)
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

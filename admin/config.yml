@@ -1,0 +1,77 @@
+backend:
+  name: github
+  repo: qq19557033687-ui/time-traveler
+  branch: main
+  # OAuth configuration - you need to register a GitHub OAuth App
+  # See: https://decapcms.org/docs/github-backend/
+  base_url: https://api.netlify.com  # Netlify OAuth proxy (free)
+
+media_folder: images
+public_folder: images
+
+collections:
+  - name: articles
+    label: 文章
+    label_singular: 文章
+    folder: content/articles
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: yaml-frontmatter
+    summary: "{{title}} · {{category}} · {{date}}"
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+      - label: 副标题
+        name: subtitle
+        widget: string
+      - label: 日期
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+      - label: 阅读时间
+        name: readTime
+        widget: string
+        default: "5 分钟"
+      - label: 分类
+        name: category
+        widget: select
+        options:
+          - 随笔
+          - 旅行
+          - 生活
+          - 思考
+          - 写作
+      - label: 封面图片
+        name: cover
+        widget: image
+        allow_multiple: false
+      - label: 摘要
+        name: excerpt
+        widget: text
+      - label: 排序
+        name: order
+        widget: number
+        value_type: int
+        min: 1
+        hint: "数字越小越靠前，1为推荐文章"
+      - label: 正文
+        name: body
+        widget: markdown
+
+  - name: settings
+    label: 设置
+    files:
+      - label: 站点设置
+        name: site
+        file: content/settings.json
+        fields:
+          - label: 站点名称
+            name: name
+            widget: string
+            default: "时间旅人"
+          - label: 站点描述
+            name: description
+            widget: text
+            default: "在加速的时代里，我们选择慢下来。"

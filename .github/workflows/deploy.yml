@@ -15,19 +15,71 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Generate articles manifest
+        run: |
+          python3 -c "
+          import os, json, re
+
+          articles_dir = 'content/articles'
+          manifest = []
+
+          for filename in sorted(os.listdir(articles_dir)):
+              if not filename.endswith('.md'):
+                  continue
+              filepath = os.path.join(articles_dir, filename)
+              with open(filepath, 'r', encoding='utf-8') as f:
+                  text = f.read()
+
+              # Parse YAML frontmatter
+              match = re.match(r'^---\r?\n([\s\S]*?)\r?\n---', text)
+              if not match:
+                  continue
+              meta = {}
+              for line in match.group(1).split('\n'):
+                  m = re.match(r'^(\w+):\s*(.+)$', line)
+                  if m:
+                      val = m[2].strip()
+                      if val.startswith('"') and val.endswith('"'):
+                          val = val[1:-1]
+                      meta[m[1]] = val
+
+              article_id = filename.replace('.md', '')
+              manifest.append({
+                  'id': article_id,
+                  'title': meta.get('title', ''),
+                  'subtitle': meta.get('subtitle', ''),
+                  'date': meta.get('date', ''),
+                  'readTime': meta.get('readTime', ''),
+                  'category': meta.get('category', ''),
+                  'cover': meta.get('cover', ''),
+                  'excerpt': meta.get('excerpt', ''),
+                  'order': int(meta.get('order', 99))
+              })
+
+          manifest.sort(key=lambda a: a['order'])
+
+          with open('content/articles.json', 'w', encoding='utf-8') as f:
+              json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+          print('Generated manifest with', len(manifest), 'articles')
+          "
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
