@@ -2,10 +2,8 @@ backend:
   name: github
   repo: qq19557033687-ui/time-traveler
   branch: main
-  # OAuth configuration via Netlify OAuth provider
-  # Site: shiny-pony-dc1588 (GitHub OAuth provider installed)
-  # See: https://decapcms.org/docs/github-backend/
-  base_url: https://api.netlify.com
+  # 使用具体 Netlify 站点地址，避免自定义域名被当作 site_id
+  base_url: https://shiny-pony-dc1588.netlify.app
 
 media_folder: images
 public_folder: images
