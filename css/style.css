@@ -1242,30 +1242,30 @@ ul, ol {
 
   .hero-title-bleed {
     flex: 1;
-    min-height: 50vh;
+    min-height: 55vh;
   }
 
-  /* 移动端保留出血排印，调整尺寸避免过度裁切 */
+  /* 移动端出血排印：背景大字调亮，确保可见 */
+  .bleed-char {
+    color: rgba(255, 255, 255, 0.18);
+  }
+
   .bleed-shi {
-    font-size: 50vw;
-    top: 0;
-    left: -5%;
+    font-size: 48vw;
+    top: 5%;
+    left: 0;
   }
 
   .bleed-jian {
-    font-size: 38vw;
-    top: 18%;
-    right: -3%;
+    font-size: 36vw;
+    top: 22%;
+    right: 0;
   }
 
   .bleed-main {
-    font-size: 20vw;
-    margin-right: 2%;
-    margin-bottom: 3%;
-  }
-
-  .bleed-main-prefix {
-    display: none;
+    font-size: 22vw;
+    margin-right: 5%;
+    margin-bottom: 5%;
   }
 
   .hero-bottom {
