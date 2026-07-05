@@ -1322,6 +1322,16 @@ ul, ol {
   }
 }
 
+.creators-hero-heading {
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .creators-hero-heading {
+    grid-column: 1 / span 7;
+  }
+}
+
 .creators-eyebrow {
   font-size: 0.625rem;
   letter-spacing: 0.3em;
@@ -1336,23 +1346,23 @@ ul, ol {
 
 .creators-title {
   font-family: var(--font-display);
-  font-size: 19vw;
+  font-size: clamp(4.5rem, 16vw, 10rem);
   font-weight: 900;
   line-height: 0.9;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.07em;
   color: hsl(var(--background));
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
   .creators-title {
-    grid-column: span 7;
-    font-size: 9rem;
+    font-size: clamp(6rem, 10vw, 11rem);
   }
 }
 
 @media (min-width: 1024px) {
   .creators-title {
-    font-size: 12rem;
+    font-size: clamp(7.5rem, 10.5vw, 12rem);
   }
 }
 
@@ -1691,15 +1701,18 @@ ul, ol {
   }
 
   .creators-title {
-    font-size: 22vw;
+    font-size: clamp(3.75rem, 18vw, 5.5rem);
+    letter-spacing: -0.06em;
   }
 
   .creators-bg-word {
-    font-size: 30vw;
-    transform: rotate(-90deg);
-    transform-origin: left bottom;
-    left: 1rem;
-    bottom: -1rem;
+    font-size: 28vw;
+    left: -0.08em;
+    right: auto;
+    bottom: -0.1em;
+    transform: none;
+    max-width: 100vw;
+    overflow: hidden;
   }
 
   .creator-card {
