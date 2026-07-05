@@ -74,3 +74,133 @@ collections:
             name: description
             widget: text
             default: "在加速的时代里，我们选择慢下来。"
+
+  - name: creators_page
+    label: 创作者页面
+    files:
+      - label: 创作者页面内容
+        name: creators
+        file: content/creators.json
+        fields:
+          - label: 首屏
+            name: hero
+            widget: object
+            fields:
+              - label: 小标题
+                name: eyebrow
+                widget: string
+                default: "Creators / Time Traveler"
+              - label: 主标题
+                name: title
+                widget: string
+                default: "优秀创作者"
+              - label: 简介段落
+                name: intro
+                widget: list
+                field:
+                  label: 段落
+                  name: paragraph
+                  widget: text
+              - label: 背景英文
+                name: backgroundWord
+                widget: string
+                default: "CREATORS"
+          - label: 宣言
+            name: manifesto
+            widget: object
+            fields:
+              - label: 编号
+                name: number
+                widget: string
+                default: "01"
+              - label: 文案
+                name: text
+                widget: text
+          - label: 简介区标题
+            name: profilesSection
+            widget: object
+            fields:
+              - label: 小标题
+                name: eyebrow
+                widget: string
+                default: "Selected Profiles"
+              - label: 标题
+                name: title
+                widget: string
+                default: "创作者简介"
+          - label: 创作者列表
+            name: creators
+            widget: list
+            summary: "{{fields.name}} · {{fields.role}}"
+            fields:
+              - label: 姓名
+                name: name
+                widget: string
+              - label: 头像字
+                name: avatar
+                widget: string
+                hint: "显示在方形头像里的单个字，例如：墨、岚、砚"
+              - label: 身份
+                name: role
+                widget: string
+              - label: 简介
+                name: bio
+                widget: text
+              - label: 标签
+                name: tags
+                widget: list
+                field:
+                  label: 标签
+                  name: tag
+                  widget: string
+          - label: 作品区标题
+            name: worksSection
+            widget: object
+            fields:
+              - label: 小标题
+                name: eyebrow
+                widget: string
+                default: "Selected Works"
+              - label: 标题
+                name: title
+                widget: string
+                default: "部分优秀作品"
+          - label: 优秀作品
+            name: works
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - label: 类型
+                name: type
+                widget: string
+                hint: "例如：文字 / 创作者计划"
+              - label: 标题
+                name: title
+                widget: string
+              - label: 描述
+                name: description
+                widget: text
+              - label: 链接
+                name: url
+                widget: string
+                hint: "例如：article.html?id=the-quiet-of-dawn"
+          - label: 加入引导
+            name: join
+            widget: object
+            fields:
+              - label: 小标题
+                name: eyebrow
+                widget: string
+                default: "Join Us"
+              - label: 标题
+                name: title
+                widget: string
+              - label: 文案
+                name: text
+                widget: text
+              - label: 按钮文字
+                name: linkText
+                widget: string
+              - label: 按钮链接
+                name: linkUrl
+                widget: string
