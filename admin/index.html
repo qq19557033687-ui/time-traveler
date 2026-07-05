@@ -4,23 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>内容管理 · 时间旅人</title>
-  <!-- 自动跳转：从自定义域名访问 /admin/ 时，跳转到 Netlify 站点地址 -->
-  <!-- 原因：Decap CMS OAuth 的 site_id 取自 window.location.hostname -->
-  <!-- 自定义域名（时间旅人.cn）不是 Netlify 站点，Netlify OAuth Proxy 无法识别 -->
-  <!-- 跳转到 Netlify 站点后，site_id 正确，OAuth 登录才能成功 -->
-  <script>
-    (function() {
-      var NETLIFY_HOST = 'shiny-pony-dc1588.netlify.app';
-      var host = window.location.hostname;
-      var isNetlify = host === NETLIFY_HOST;
-      var isLocal  = host === 'localhost' || host === '127.0.0.1';
-      if (!isNetlify && !isLocal) {
-        // 保留路径中的 hash（Decap CMS 路由需要）
-        var dest = 'https://' + NETLIFY_HOST + '/admin/' + window.location.hash;
-        window.location.replace(dest);
-      }
-    })();
-  </script>
 </head>
 <body>
   <!-- Polyfill: crypto.randomUUID is only available in secure contexts (HTTPS/localhost) -->
