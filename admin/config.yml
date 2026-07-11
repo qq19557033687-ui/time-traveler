@@ -2,7 +2,7 @@ backend:
   name: github
   repo: qq19557033687-ui/time-traveler
   branch: main
-  base_url: https://shiny-pony-dc1588.netlify.app
+  app_id: Ov23liCdCHAJV4NfBVOV
 media_folder: images
 public_folder: images
 
