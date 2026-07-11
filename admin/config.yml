@@ -3,9 +3,6 @@ backend:
   repo: qq19557033687-ui/time-traveler
   branch: main
   app_id: Ov23liCdCHAJV4NfBVOV
-  base_url: ""
-  auth_endpoint: oauth/authorize
-  auth_type: pkce
 
 media_folder: images
 public_folder: images
