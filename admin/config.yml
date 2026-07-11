@@ -2,8 +2,7 @@ backend:
   name: github
   repo: qq19557033687-ui/time-traveler
   branch: main
-  app_id: Ov23liCdCHAJV4NfBVOV
-
+  auth_type: token
 media_folder: images
 public_folder: images
 
@@ -207,3 +206,4 @@ collections:
               - label: 按钮链接
                 name: linkUrl
                 widget: string
+
