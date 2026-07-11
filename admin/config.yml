@@ -44,7 +44,6 @@ collections:
       - label: 封面图片
         name: cover
         widget: image
-        allow_multiple: false
       - label: 摘要
         name: excerpt
         widget: text
@@ -138,7 +137,6 @@ collections:
               - label: 形象照
                 name: avatar
                 widget: image
-                allow_multiple: false
                 required: false
                 hint: "上传创作者形象照，留空则显示姓名首字"
               - label: 备用字
