@@ -2,8 +2,10 @@ backend:
   name: github
   repo: qq19557033687-ui/time-traveler
   branch: main
-  # 使用具体 Netlify 站点地址，避免自定义域名被当作 site_id
-  base_url: https://shiny-pony-dc1588.netlify.app
+  app_id: Ov23liCdCHAJV4NfBVOV
+  base_url: ""
+  auth_endpoint: oauth/authorize
+  auth_type: pkce
 
 media_folder: images
 public_folder: images
