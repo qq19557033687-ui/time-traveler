@@ -136,10 +136,16 @@ collections:
               - label: 姓名
                 name: name
                 widget: string
-              - label: 头像字
+              - label: 形象照
                 name: avatar
+                widget: image
+                allow_multiple: false
+                required: false
+                hint: "上传创作者形象照，留空则显示姓名首字"
+              - label: 备用字
+                name: avatarChar
                 widget: string
-                hint: "显示在方形头像里的单个字，例如：墨、岚、砚"
+                hint: "无形象照时显示的单字，例如：墨、岚、砚"
               - label: 身份
                 name: role
                 widget: string

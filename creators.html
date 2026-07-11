@@ -129,10 +129,10 @@
         },
         profilesSection: { eyebrow: 'Selected Profiles', title: '创作者简介' },
         creators: [
-          { name: '墨行者', avatar: '墨', role: '文字创作者', bio: '擅长以散文记录城市、深夜与人的细微情绪。作品常在安静处发力，把普通日常写成可以反复回望的时间标本。', tags: ['随笔', '城市观察', '慢生活'] },
-          { name: '山岚', avatar: '岚', role: '影像记录者', bio: '长期拍摄旅途中的晨昏、山路与无名小镇。镜头里少有宏大的风景，更多是风吹过、人经过、时间停留过。', tags: ['摄影', '旅行', '纪实'] },
-          { name: '砚白', avatar: '砚', role: '笔墨创作者', bio: '用书写保存节气、梦境和旧物。她的作品不追求锋利，而更像一封慢慢展开的手写信，让人重新相信纸面的温度。', tags: ['手写', '诗句', '传统美学'] },
-          { name: '川野', avatar: '川', role: '声音采集者', bio: '喜欢收集雨声、列车声、街角谈话与风穿过树叶的声音。他相信声音也是一种写作，可以替记忆保留现场。', tags: ['声音', '田野', '记忆'] }
+          { name: '墨行者', avatar: '', avatarChar: '墨', role: '文字创作者', bio: '擅长以散文记录城市、深夜与人的细微情绪。作品常在安静处发力，把普通日常写成可以反复回望的时间标本。', tags: ['随笔', '城市观察', '慢生活'] },
+          { name: '山岚', avatar: '', avatarChar: '岚', role: '影像记录者', bio: '长期拍摄旅途中的晨昏、山路与无名小镇。镜头里少有宏大的风景，更多是风吹过、人经过、时间停留过。', tags: ['摄影', '旅行', '纪实'] },
+          { name: '砚白', avatar: '', avatarChar: '砚', role: '笔墨创作者', bio: '用书写保存节气、梦境和旧物。她的作品不追求锋利，而更像一封慢慢展开的手写信，让人重新相信纸面的温度。', tags: ['手写', '诗句', '传统美学'] },
+          { name: '川野', avatar: '', avatarChar: '川', role: '声音采集者', bio: '喜欢收集雨声、列车声、街角谈话与风穿过树叶的声音。他相信声音也是一种写作，可以替记忆保留现场。', tags: ['声音', '田野', '记忆'] }
         ],
         worksSection: { eyebrow: 'Selected Works', title: '部分优秀作品' },
         works: [
@@ -183,9 +183,16 @@
         var creators = data.creators && data.creators.length ? data.creators : fallbackData.creators;
         document.getElementById('creator-grid').innerHTML = creators.map(function (creator, index) {
           var tags = creator.tags || [];
+          var avatarHtml;
+          if (creator.avatar) {
+            avatarHtml = '<div class="creator-avatar creator-avatar-image"><img src="' + escapeHtml(creator.avatar) + '" alt="' + escapeHtml(creator.name) + '" loading="lazy"></div>';
+          } else {
+            var fallbackChar = creator.avatarChar || text(creator.name, '').slice(0, 1);
+            avatarHtml = '<div class="creator-avatar creator-avatar-char">' + escapeHtml(fallbackChar) + '</div>';
+          }
           return '<article class="creator-card reveal" data-delay="' + (index * 120) + '">' +
             '<div class="creator-index">' + padNumber(index) + '</div>' +
-            '<div class="creator-avatar">' + escapeHtml(creator.avatar || text(creator.name, '').slice(0, 1)) + '</div>' +
+            avatarHtml +
             '<p class="creator-role">' + escapeHtml(creator.role) + '</p>' +
             '<h3>' + escapeHtml(creator.name) + '</h3>' +
             '<p class="creator-bio">' + escapeHtml(creator.bio) + '</p>' +
