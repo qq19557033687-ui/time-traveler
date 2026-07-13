@@ -33,6 +33,17 @@
     "order": 2
   },
   {
+    "id": "黄花梨",
+    "title": "黄花梨",
+    "subtitle": "姚丽蓉",
+    "date": "2026-07-13",
+    "readTime": "5 分钟",
+    "category": "写作",
+    "cover": "/images/55.jpg",
+    "excerpt": "把苦难酿成沉香，藏进年轮的胸膛",
+    "order": 2
+  },
+  {
     "id": "letters-from-the-road",
     "title": "来自路上的信",
     "subtitle": "旅行如何重塑我们对距离的认知",
