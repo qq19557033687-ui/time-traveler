@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://xn--gmqq57cget97q.cn/sitemap.xml
