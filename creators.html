@@ -43,8 +43,8 @@
 
     <section class="creator-manifesto">
       <div class="container-wide px-page section-pad">
-        <div class="manifesto-card reveal">
-          <span class="manifesto-num" id="manifesto-num">01</span>
+        <div class="manifesto-quote reveal">
+          <span class="quote-mark" aria-hidden="true">"</span>
           <p id="manifesto-text">正在加载创作者页面内容...</p>
         </div>
       </div>
@@ -57,7 +57,7 @@
           <h2 id="profiles-title">创作者简介</h2>
         </div>
 
-        <div class="creator-grid" id="creator-grid"></div>
+        <div class="creator-list" id="creator-list"></div>
       </div>
     </section>
 
@@ -68,7 +68,7 @@
           <h2 id="works-title">部分优秀作品</h2>
         </div>
 
-        <div class="works-list" id="works-list"></div>
+        <div class="works-grid" id="works-grid"></div>
       </div>
     </section>
 
@@ -173,7 +173,6 @@
         }).join('');
 
         var manifesto = data.manifesto || fallbackData.manifesto;
-        document.getElementById('manifesto-num').textContent = text(manifesto.number, fallbackData.manifesto.number);
         document.getElementById('manifesto-text').textContent = text(manifesto.text, fallbackData.manifesto.text);
 
         var profilesSection = data.profilesSection || fallbackData.profilesSection;
@@ -181,23 +180,27 @@
         document.getElementById('profiles-title').textContent = text(profilesSection.title, fallbackData.profilesSection.title);
 
         var creators = data.creators && data.creators.length ? data.creators : fallbackData.creators;
-        document.getElementById('creator-grid').innerHTML = creators.map(function (creator, index) {
+        document.getElementById('creator-list').innerHTML = creators.map(function (creator, index) {
           var tags = creator.tags || [];
           var avatarHtml;
           if (creator.avatar) {
-            avatarHtml = '<div class="creator-avatar creator-avatar-image"><img src="' + escapeHtml(creator.avatar) + '" alt="' + escapeHtml(creator.name) + '" loading="lazy"></div>';
+            avatarHtml = '<div class="creator-row-avatar creator-avatar-image"><img src="' + escapeHtml(creator.avatar) + '" alt="' + escapeHtml(creator.name) + '" loading="lazy"></div>';
           } else {
             var fallbackChar = creator.avatarChar || text(creator.name, '').slice(0, 1);
-            avatarHtml = '<div class="creator-avatar creator-avatar-char">' + escapeHtml(fallbackChar) + '</div>';
+            avatarHtml = '<div class="creator-row-avatar creator-avatar-char">' + escapeHtml(fallbackChar) + '</div>';
           }
-          return '<article class="creator-card reveal" data-delay="' + (index * 120) + '">' +
-            '<div class="creator-index">' + padNumber(index) + '</div>' +
+          return '<div class="creator-row reveal" data-delay="' + (index * 120) + '">' +
             avatarHtml +
-            '<p class="creator-role">' + escapeHtml(creator.role) + '</p>' +
+            '<div class="creator-row-body">' +
+            '<div class="creator-row-meta">' +
             '<h3>' + escapeHtml(creator.name) + '</h3>' +
-            '<p class="creator-bio">' + escapeHtml(creator.bio) + '</p>' +
-            '<div class="creator-tags">' + tags.map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' +
-            '</article>';
+            '<span class="creator-row-role">' + escapeHtml(creator.role) + '</span>' +
+            '</div>' +
+            '<p class="creator-row-bio">' + escapeHtml(creator.bio) + '</p>' +
+            '<div class="creator-row-tags">' + tags.map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' +
+            '</div>' +
+            '<div class="creator-row-num">' + padNumber(index) + '</div>' +
+            '</div>';
         }).join('');
 
         var worksSection = data.worksSection || fallbackData.worksSection;
@@ -205,14 +208,12 @@
         document.getElementById('works-title').textContent = text(worksSection.title, fallbackData.worksSection.title);
 
         var works = data.works && data.works.length ? data.works : fallbackData.works;
-        document.getElementById('works-list').innerHTML = works.map(function (work, index) {
-          return '<a class="work-item reveal" href="' + escapeHtml(work.url || '#') + '" data-magnetic>' +
-            '<span class="work-num">' + padNumber(index) + '</span>' +
-            '<div>' +
-            '<p class="work-type">' + escapeHtml(work.type) + '</p>' +
+        document.getElementById('works-grid').innerHTML = works.map(function (work, index) {
+          return '<a class="work-card reveal" href="' + escapeHtml(work.url || '#') + '" data-magnetic>' +
+            '<span class="work-card-type">' + escapeHtml(work.type) + '</span>' +
             '<h3>' + escapeHtml(work.title) + '</h3>' +
-            '</div>' +
             '<p>' + escapeHtml(work.description) + '</p>' +
+            '<span class="work-card-arrow">&rarr;</span>' +
             '</a>';
         }).join('');
 
