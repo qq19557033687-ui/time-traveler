@@ -184,23 +184,18 @@
           var tags = creator.tags || [];
           var avatarHtml;
           if (creator.avatar) {
-            avatarHtml = '<div class="creator-row-avatar creator-avatar-image"><img src="' + escapeHtml(creator.avatar) + '" alt="' + escapeHtml(creator.name) + '" loading="lazy"></div>';
+            avatarHtml = '<div class="creator-card-avatar creator-avatar-image"><img src="' + escapeHtml(creator.avatar) + '" alt="' + escapeHtml(creator.name) + '" loading="lazy"></div>';
           } else {
             var fallbackChar = creator.avatarChar || text(creator.name, '').slice(0, 1);
-            avatarHtml = '<div class="creator-row-avatar creator-avatar-char">' + escapeHtml(fallbackChar) + '</div>';
+            avatarHtml = '<div class="creator-card-avatar creator-avatar-char">' + escapeHtml(fallbackChar) + '</div>';
           }
-          return '<div class="creator-row reveal" data-delay="' + (index * 120) + '">' +
-            avatarHtml +
-            '<div class="creator-row-body">' +
-            '<div class="creator-row-meta">' +
+          return '<article class="creator-card-v2 reveal" data-delay="' + (index * 120) + '">' +
+            '<div class="creator-card-top">' + avatarHtml + '</div>' +
             '<h3>' + escapeHtml(creator.name) + '</h3>' +
-            '<span class="creator-row-role">' + escapeHtml(creator.role) + '</span>' +
-            '</div>' +
-            '<p class="creator-row-bio">' + escapeHtml(creator.bio) + '</p>' +
-            '<div class="creator-row-tags">' + tags.map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' +
-            '</div>' +
-            '<div class="creator-row-num">' + padNumber(index) + '</div>' +
-            '</div>';
+            '<p class="creator-card-role">' + escapeHtml(creator.role) + '</p>' +
+            '<p class="creator-card-bio">' + escapeHtml(creator.bio) + '</p>' +
+            '<div class="creator-card-tags">' + tags.map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' +
+            '</article>';
         }).join('');
 
         var worksSection = data.worksSection || fallbackData.worksSection;
