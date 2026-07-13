@@ -1891,17 +1891,18 @@ ul, ol {
   font-family: var(--font-display);
   font-size: 2.75rem;
   font-weight: 900;
-  border: 2px solid hsl(var(--foreground));
+  border-radius: 50%;
   overflow: hidden;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.creator-card-avatar.creator-avatar-char {
+  background: hsl(0 0% 94%);
 }
 
 .creator-card-v2:hover .creator-card-avatar {
   transform: scale(1.06);
-}
-
-.creator-card-avatar.creator-avatar-image {
-  border-radius: 50%;
+  box-shadow: 0 4px 20px hsl(var(--foreground) / 0.12);
 }
 
 .creator-card-avatar.creator-avatar-image img {
