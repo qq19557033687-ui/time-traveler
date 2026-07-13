@@ -2042,6 +2042,14 @@ ul, ol {
   text-align: center;
 }
 
+.bio-content p {
+  margin-bottom: 1.25rem;
+}
+
+.bio-content p:last-child {
+  margin-bottom: 0;
+}
+
 .creator-profile-works .works-grid {
   margin-top: 1rem;
 }

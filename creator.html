@@ -1,10 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>创作者详情 · 时间旅人</title>
   <meta name="description" content="时间旅人创作者的个人主页与作品展示。">
+  <link rel="canonical" href="https://xn--gmqq57cget97q.cn/creator.html">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="时间旅人">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+  <script id="creator-schema" type="application/ld+json"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="grain">
@@ -19,7 +32,7 @@
           <span class="name">时间旅人</span>
         </a>
         <nav class="site-nav">
-          <a href="index.html" class="link-underline" data-magnetic>文章</a>
+          <a href="index.html" class="link-underline" data-magnetic>旅人志</a>
           <a href="creators.html" class="link-underline" data-magnetic>创作者</a>
           <a href="index.html#about" class="link-underline hidden-mobile" data-magnetic>关于</a>
         </nav>
@@ -95,7 +108,7 @@
       }
 
       function nl2br(str) {
-        return escapeHtml(str).replace(/\n/g, '<br>');
+        return escapeHtml(str).replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br>');
       }
 
       var creatorName = getParam('name');
@@ -121,6 +134,40 @@
 
         document.title = creator.name + ' · 时间旅人';
 
+        // Update OG and Twitter meta
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', creator.name + ' · 时间旅人');
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', creator.bio || '');
+        var ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+        var ogImage = document.querySelector('meta[property="og:image"]');
+        if (ogImage && creator.avatar) ogImage.setAttribute('content', creator.avatar);
+        var twTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', creator.name + ' · 时间旅人');
+        var twDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', creator.bio || '');
+        var twImage = document.querySelector('meta[name="twitter:image"]');
+        if (twImage && creator.avatar) twImage.setAttribute('content', creator.avatar);
+
+        // Update canonical
+        var canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', window.location.href);
+
+        // Schema.org Person
+        var schema = {
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          'name': creator.name,
+          'description': creator.bio || '',
+          'image': creator.avatar || '',
+          'jobTitle': creator.role || '',
+          'url': window.location.href,
+          'sameAs': []
+        };
+        var schemaEl = document.getElementById('creator-schema');
+        if (schemaEl) schemaEl.textContent = JSON.stringify(schema, null, 2);
+
         // Avatar
         var avatarEl = document.getElementById('profile-avatar');
         if (creator.avatar) {
@@ -142,7 +189,7 @@
         }).join('');
 
         // Bio (support line breaks)
-        document.getElementById('profile-bio').innerHTML = nl2br(creator.bio || '');
+        document.getElementById('profile-bio').innerHTML = '<p>' + nl2br(creator.bio || '') + '</p>';
 
         // Works
         var articleIds = creator.articleIds || [];
@@ -177,3 +224,4 @@
   </script>
 </body>
 </html>
+
