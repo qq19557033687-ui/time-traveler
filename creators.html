@@ -189,13 +189,13 @@
             var fallbackChar = creator.avatarChar || text(creator.name, '').slice(0, 1);
             avatarHtml = '<div class="creator-card-avatar creator-avatar-char">' + escapeHtml(fallbackChar) + '</div>';
           }
-          return '<article class="creator-card-v2 reveal" data-delay="' + (index * 120) + '">' +
+          return '<a class="creator-card-v2 reveal" href="creator.html?name=' + encodeURIComponent(creator.name) + '" data-delay="' + (index * 120) + '">' +
             '<div class="creator-card-top">' + avatarHtml + '</div>' +
             '<h3>' + escapeHtml(creator.name) + '</h3>' +
             '<p class="creator-card-role">' + escapeHtml(creator.role) + '</p>' +
             '<p class="creator-card-bio">' + escapeHtml(creator.bio) + '</p>' +
             '<div class="creator-card-tags">' + tags.map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' +
-            '</article>';
+            '</a>';
         }).join('');
 
         var worksSection = data.worksSection || fallbackData.worksSection;

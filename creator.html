@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创作者详情 · 时间旅人</title>
+  <meta name="description" content="时间旅人创作者的个人主页与作品展示。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="grain">
+
+  <div class="cursor-dot"></div>
+
+  <header class="site-header">
+    <div class="container-wide px-page">
+      <div class="site-header-inner">
+        <a href="index.html" class="logo-mark" data-magnetic>
+          <span class="dot"></span>
+          <span class="name">时间旅人</span>
+        </a>
+        <nav class="site-nav">
+          <a href="index.html" class="link-underline" data-magnetic>文章</a>
+          <a href="creators.html" class="link-underline" data-magnetic>创作者</a>
+          <a href="index.html#about" class="link-underline hidden-mobile" data-magnetic>关于</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="creator-profile-page">
+    <section class="creator-profile-hero">
+      <div class="container-wide px-page">
+        <div class="creator-profile-card reveal">
+          <div class="creator-profile-avatar" id="profile-avatar"></div>
+          <h1 id="profile-name">正在加载...</h1>
+          <p class="creator-profile-role" id="profile-role"></p>
+          <div class="creator-profile-tags" id="profile-tags"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="creator-profile-bio">
+      <div class="container-wide px-page section-pad">
+        <div class="bio-content reveal" id="profile-bio"></div>
+      </div>
+    </section>
+
+    <section class="creator-profile-works">
+      <div class="container-wide px-page section-pad">
+        <div class="section-heading reveal">
+          <p class="creators-eyebrow">Selected Works</p>
+          <h2>作品</h2>
+        </div>
+        <div class="works-grid" id="profile-works"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-wide px-page" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <span class="dot"></span>
+            <span class="name">时间旅人</span>
+          </div>
+          <p class="footer-desc">在时间的褶皱里，收集那些值得被记住的瞬间。</p>
+        </div>
+        <div class="footer-right">
+          <p class="year">&copy; 2026</p>
+          <p>以文字丈量时间</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      function getParam(name) {
+        var match = window.location.search.match(new RegExp('[?&]' + name + '=([^&]+)'));
+        return match ? decodeURIComponent(match[1]) : '';
+      }
+
+      function text(value, fallback) {
+        return value == null || value === '' ? fallback : String(value);
+      }
+
+      function escapeHtml(value) {
+        return text(value, '').replace(/[&<>"']/g, function (char) {
+          return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char];
+        });
+      }
+
+      function nl2br(str) {
+        return escapeHtml(str).replace(/\n/g, '<br>');
+      }
+
+      var creatorName = getParam('name');
+      if (!creatorName) {
+        document.getElementById('profile-name').textContent = '未指定创作者';
+        return;
+      }
+
+      Promise.all([
+        fetch('content/creators.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : Promise.reject(); }),
+        fetch('content/articles.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      ]).then(function (results) {
+        var creatorsData = results[0];
+        var articlesData = results[1];
+        var creators = creatorsData.creators || [];
+        var articles = Array.isArray(articlesData) ? articlesData : (articlesData.articles || []);
+
+        var creator = creators.find(function (c) { return c.name === creatorName; });
+        if (!creator) {
+          document.getElementById('profile-name').textContent = '创作者未找到';
+          return;
+        }
+
+        document.title = creator.name + ' · 时间旅人';
+
+        // Avatar
+        var avatarEl = document.getElementById('profile-avatar');
+        if (creator.avatar) {
+          avatarEl.innerHTML = '<img src="' + escapeHtml(creator.avatar) + '" alt="' + escapeHtml(creator.name) + '">';
+        } else {
+          var ch = creator.avatarChar || creator.name.slice(0, 1);
+          avatarEl.textContent = ch;
+          avatarEl.classList.add('avatar-char');
+        }
+
+        // Name & role
+        document.getElementById('profile-name').textContent = creator.name;
+        document.getElementById('profile-role').textContent = creator.role || '';
+
+        // Tags
+        var tags = creator.tags || [];
+        document.getElementById('profile-tags').innerHTML = tags.map(function (tag) {
+          return '<span>' + escapeHtml(tag) + '</span>';
+        }).join('');
+
+        // Bio (support line breaks)
+        document.getElementById('profile-bio').innerHTML = nl2br(creator.bio || '');
+
+        // Works
+        var articleIds = creator.articleIds || [];
+        var creatorWorks = articles.filter(function (a) {
+          return articleIds.indexOf(a.id) !== -1;
+        });
+
+        var worksEl = document.getElementById('profile-works');
+        if (creatorWorks.length === 0) {
+          worksEl.innerHTML = '<p style="color:hsl(var(--muted-foreground));text-align:center;padding:2rem 0;">暂无作品</p>';
+        } else {
+          worksEl.innerHTML = creatorWorks.map(function (article) {
+            return '<a class="work-card reveal" href="article.html?id=' + escapeHtml(article.id) + '" data-magnetic>' +
+              '<span class="work-card-type">' + escapeHtml(article.category || '文章') + '</span>' +
+              '<h3>' + escapeHtml(article.title) + '</h3>' +
+              '<p>' + escapeHtml(article.excerpt || article.subtitle || '') + '</p>' +
+              '<span class="work-card-arrow">&rarr;</span>' +
+              '</a>';
+          }).join('');
+        }
+
+        requestAnimationFrame(function () {
+          if (window.initReveal) window.initReveal();
+          document.querySelectorAll('.reveal:not(.revealed)').forEach(function (el) {
+            el.classList.add('revealed');
+          });
+        });
+      }).catch(function () {
+        document.getElementById('profile-name').textContent = '加载失败';
+      });
+    })();
+  </script>
+</body>
+</html>
