@@ -6,6 +6,11 @@
    - 自定义光标 & 磁吸效果
    ============================================ */
 
+// Force HTTPS
+if (location.protocol === 'http:' && location.hostname !== 'localhost') {
+  location.replace(location.href.replace('http:', 'https:'));
+}
+
 (function () {
   'use strict';
 
