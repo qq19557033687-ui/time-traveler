@@ -71,6 +71,53 @@
     var descEl = document.querySelector('meta[name="description"]');
     if (descEl) descEl.setAttribute('content', meta.subtitle || meta.excerpt);
 
+    // Update OG and Twitter meta tags
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', meta.title + ' · 时间旅人');
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', meta.subtitle || meta.excerpt || '');
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+    var ogImage = document.querySelector('meta[property="og:image"]');
+    if (ogImage && meta.cover) ogImage.setAttribute('content', meta.cover);
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', meta.title + ' · 时间旅人');
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', meta.subtitle || meta.excerpt || '');
+    var twImage = document.querySelector('meta[name="twitter:image"]');
+    if (twImage && meta.cover) twImage.setAttribute('content', meta.cover);
+
+    // Update canonical
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', window.location.href);
+
+    // Schema.org Article structured data
+    var schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': meta.title,
+      'description': meta.subtitle || meta.excerpt || '',
+      'author': {
+        '@type': 'Person',
+        'name': meta.author || '时间旅人'
+      },
+      'datePublished': meta.date,
+      'image': meta.cover || '',
+      'url': window.location.href,
+      'publisher': {
+        '@type': 'Organization',
+        'name': '时间旅人',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://xn--gmqq57cget97q.cn/images/og-cover.jpg'
+        }
+      }
+    };
+    var schemaEl = document.getElementById('article-schema');
+    if (schemaEl) {
+      schemaEl.textContent = JSON.stringify(schema, null, 2);
+    }
+
     // Fill header
     var titleEl = document.getElementById('article-title');
     if (titleEl) titleEl.textContent = meta.title;
