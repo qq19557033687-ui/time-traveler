@@ -58,6 +58,47 @@ collections:
         name: body
         widget: markdown
 
+  - name: creators
+    label: 创作者
+    label_singular: 创作者
+    folder: content/creators
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: yaml-frontmatter
+    summary: "{{name}} · {{tagline}}"
+    fields:
+      - label: 姓名
+        name: name
+        widget: string
+      - label: 头像
+        name: avatar
+        widget: image
+        allow_multiple: false
+      - label: 一句话介绍
+        name: tagline
+        widget: string
+      - label: 简介
+        name: bio
+        widget: text
+      - label: 代表作品
+        name: works
+        widget: list
+        field:
+          label: 作品名
+          widget: string
+      - label: 推荐
+        name: featured
+        widget: boolean
+        default: false
+        hint: "勾选后将在页面顶部大图展示"
+      - label: 排序
+        name: order
+        widget: number
+        value_type: int
+        min: 1
+        hint: "数字越小越靠前"
+
   - name: settings
     label: 设置
     files:
