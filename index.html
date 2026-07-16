@@ -39,7 +39,6 @@
         <nav class="site-nav">
           <a href="index.html" class="link-underline" data-magnetic>旅人志</a>
           <a href="creators.html" class="link-underline" data-magnetic>创作者</a>
-          <a href="invitation.html" class="link-underline" data-magnetic>邀请函</a>
           <a href="#about" class="link-underline hidden-mobile" data-magnetic>关于</a>
         </nav>
       </div>
@@ -76,25 +75,26 @@
     </div>
   </section>
 
-  <!-- 邀请函入口 Banner -->
-  <section class="invitation-banner">
-    <div class="container-wide px-page">
-      <div class="reveal invitation-banner-inner">
-        <div class="invitation-banner-left">
-          <p class="invitation-banner-eyebrow">Invitation</p>
-          <h2 class="invitation-banner-title">内测用户邀请函</h2>
-          <p class="invitation-banner-desc">致每一位认真感受生活的灵魂——<br>这是一个缓慢、安静、干净的角落。</p>
-        </div>
-        <div class="invitation-banner-cta">
-          <a href="invitation.html" class="link-underline" data-magnetic>
-            展开邀请函
-            <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Invitation Banner -->
+  <section style="padding: 0 0 0; position: relative; z-index: 1;">
+    <div class="container-wide px-page" style="padding-top: 2rem; padding-bottom: 2rem;">
+      <a href="invitation.html" class="reveal" data-magnetic style="display:block; border: 2px solid var(--foreground); padding: 40px 48px; text-decoration: none; color: var(--foreground); transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.background='var(--foreground)';this.style.color='var(--background)'" onmouseout="this.style.background='transparent';this.style.color='var(--foreground)'">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <p style="font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.6;">Invitation</p>
+            <h2 style="font-size: clamp(24px, 4vw, 42px); font-weight: 700; letter-spacing: 0.05em; line-height: 1.3;">内测用户邀请函</h2>
+            <p style="font-size: 16px; margin-top: 8px; opacity: 0.7; max-width: 500px; line-height: 1.6;">致每一位认真感受生活的灵魂 —— 了解时间旅人的理念与愿景</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;">
+            <span>阅读邀请函</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-          </a>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 

@@ -1,730 +1,736 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>内测用户邀请函 · 时间旅人</title>
-  <meta name="description" content="致每一位认真感受生活的灵魂——时间旅人内测用户邀请函。">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- 邀请函专属字体 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时间旅人 · 内测用户邀请函</title>
+<style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <style>
-    /* ============================================
-       邀请函专属样式 — 1:1 复刻原始设计
-       所有样式 scoped 在 .invitation 内，不影响博客全局
-       ============================================ */
+:root {
+  --bg: #ffffff;
+  --bg2: #f7f7f5;
+  --bg3: #eeeef0;
+  --ink: #0a0a0a;
+  --ink-soft: #1a1a1a;
+  --muted: #8a8a8a;
+  --rule: #d8d8d8;
+  --accent: #0a0a0a;
+  --accent-light: #4a4a4a;
+  --accent2: #2a2a2a;
+  --paper-shadow: rgba(0, 0, 0, 0.06);
+}
 
-    .invitation {
-      --inv-bg: #ffffff;
-      --inv-bg2: #f7f7f5;
-      --inv-bg3: #eeeef0;
-      --inv-ink: #0a0a0a;
-      --inv-ink-soft: #1a1a1a;
-      --inv-muted: #8a8a8a;
-      --inv-rule: #d8d8d8;
-      --inv-accent: #0a0a0a;
-      --inv-accent-light: #4a4a4a;
-      --inv-accent2: #2a2a2a;
-      --inv-paper-shadow: rgba(0, 0, 0, 0.06);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      position: relative;
-      z-index: 1;
-      font-family: 'Lora', 'Songti SC', 'STSong', serif;
-      background: var(--inv-bg);
-      color: var(--inv-ink);
-      font-size: 20px;
-      line-height: 1.9;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      /* 顶部留白给 fixed header */
-      padding-top: 0;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    /* Paper Texture Background */
-    .invitation::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image:
-        radial-gradient(ellipse at 20% 10%, rgba(0, 0, 0, 0.015) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 90%, rgba(0, 0, 0, 0.015) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
-    }
+body {
+  font-family: 'Lora', 'Songti SC', 'STSong', serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-    .invitation > * {
-      position: relative;
-      z-index: 1;
-    }
+/* === Paper Texture Background === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(0, 0, 0, 0.015) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(0, 0, 0, 0.015) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
 
-    .invitation-container {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
+/* === Main Container === */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
 
-    /* === Hero / Cover === */
-    .invitation .inv-hero {
-      text-align: center;
-      padding: 140px 0 80px;
-      position: relative;
-    }
+/* === Hero / Cover Section === */
+.hero {
+  text-align: center;
+  padding: 120px 0 80px;
+  position: relative;
+}
 
-    .invitation .inv-hero-eyebrow {
-      font-family: 'Italiana', serif;
-      font-size: 28px;
-      letter-spacing: 0.35em;
-      color: var(--inv-accent);
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      padding-left: 0.35em;
-    }
+.hero-eyebrow {
+  font-family: 'Italiana', serif;
+  font-size: 28px;
+  letter-spacing: 0.35em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-left: 0.35em;
+}
 
-    .invitation .inv-hero-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 88px;
-      font-weight: 700;
-      color: var(--inv-ink);
-      line-height: 1.1;
-      margin-bottom: 16px;
-      letter-spacing: 0.12em;
-      padding-left: 0.12em;
-    }
+.hero-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 88px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+  padding-left: 0.12em;
+}
 
-    .invitation .inv-hero-subtitle {
-      font-family: 'Crimson Pro', serif;
-      font-size: 32px;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--inv-accent2);
-      margin-bottom: 40px;
-      letter-spacing: 0.05em;
-    }
+.hero-subtitle {
+  font-family: 'Crimson Pro', serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent2);
+  margin-bottom: 40px;
+  letter-spacing: 0.05em;
+}
 
-    .invitation .inv-hero-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin: 0 auto 40px;
-    }
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 40px;
+}
 
-    .invitation .inv-hero-divider .line {
-      width: 80px;
-      height: 1px;
-      background: var(--inv-accent);
-    }
+.hero-divider .line {
+  width: 80px;
+  height: 1px;
+  background: var(--accent);
+}
 
-    .invitation .inv-hero-divider .diamond {
-      width: 8px;
-      height: 8px;
-      background: var(--inv-accent);
-      transform: rotate(45deg);
-    }
+.hero-divider .diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
 
-    .invitation .inv-hero-meta {
-      font-family: 'Crimson Pro', serif;
-      font-size: 22px;
-      color: var(--inv-muted);
-      letter-spacing: 0.15em;
-    }
+.hero-meta {
+  font-family: 'Crimson Pro', serif;
+  font-size: 22px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+}
 
-    .invitation .inv-hero-date {
-      font-family: 'Italiana', serif;
-      font-size: 20px;
-      color: var(--inv-accent);
-      letter-spacing: 0.2em;
-      margin-top: 8px;
-    }
+.hero-date {
+  font-family: 'Italiana', serif;
+  font-size: 20px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+}
 
-    /* === Section === */
-    .invitation .inv-section {
-      padding: 60px 0;
-      position: relative;
-    }
+/* === Section Styles === */
+.section {
+  padding: 60px 0;
+  position: relative;
+}
 
-    .invitation .section-label {
-      font-family: 'Italiana', serif;
-      font-size: 16px;
-      letter-spacing: 0.3em;
-      color: var(--inv-accent);
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 16px;
-      padding-left: 0.3em;
-    }
+.section-label {
+  font-family: 'Italiana', serif;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+  padding-left: 0.3em;
+}
 
-    .invitation .section-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 42px;
-      font-weight: 700;
-      color: var(--inv-ink);
-      text-align: center;
-      margin-bottom: 48px;
-      letter-spacing: 0.03em;
-    }
+.section-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 48px;
+  letter-spacing: 0.03em;
+}
 
-    .invitation .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: var(--inv-accent);
-      margin: 20px auto 0;
-    }
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin: 20px auto 0;
+}
 
-    /* === Body Text === */
-    .invitation .body-text {
-      font-size: 20px;
-      line-height: 2.0;
-      color: var(--inv-ink-soft);
-      margin-bottom: 24px;
-      text-align: justify;
-      text-justify: inter-ideograph;
-    }
+/* === Body Text === */
+.body-text {
+  font-size: 20px;
+  line-height: 2.0;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
 
-    .invitation .body-text strong {
-      color: var(--inv-ink);
-      font-weight: 700;
-    }
+.body-text strong {
+  color: var(--ink);
+  font-weight: 700;
+}
 
-    /* Drop cap */
-    .invitation .drop-cap::first-letter {
-      font-family: 'Crimson Pro', serif;
-      font-size: 72px;
-      font-weight: 700;
-      float: left;
-      line-height: 0.85;
-      margin: 8px 12px 0 0;
-      color: var(--inv-accent);
-    }
+/* Drop cap for first paragraph */
+.drop-cap::first-letter {
+  font-family: 'Crimson Pro', serif;
+  font-size: 72px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  margin: 8px 12px 0 0;
+  color: var(--accent);
+}
 
-    /* === Pull Quote === */
-    .invitation .pull-quote {
-      font-family: 'Crimson Pro', serif;
-      font-size: 28px;
-      font-style: italic;
-      line-height: 1.6;
-      color: var(--inv-accent2);
-      text-align: center;
-      margin: 48px auto;
-      padding: 32px 60px;
-      border-top: 1px solid var(--inv-rule);
-      border-bottom: 1px solid var(--inv-rule);
-      max-width: 680px;
-      position: relative;
-    }
+/* === Pull Quote === */
+.pull-quote {
+  font-family: 'Crimson Pro', serif;
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--accent2);
+  text-align: center;
+  margin: 48px auto;
+  padding: 32px 60px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  max-width: 680px;
+  position: relative;
+}
 
-    .invitation .pull-quote::before {
-      content: '\201C';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--inv-bg);
-      padding: 0 16px;
-      font-size: 40px;
-      color: var(--inv-accent);
-      font-family: 'Crimson Pro', serif;
-      line-height: 1;
-    }
+.pull-quote::before {
+  content: '"';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 16px;
+  font-size: 40px;
+  color: var(--accent);
+  font-family: 'Crimson Pro', serif;
+  line-height: 1;
+}
 
-    /* === Five Corners Cards === */
-    .invitation .corners-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin: 48px 0;
-    }
+/* === Five Corners Cards === */
+.corners-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 48px 0;
+}
 
-    .invitation .corner-card {
-      background: var(--inv-bg2);
-      border-left: 2px solid var(--inv-ink);
-      padding: 32px 36px;
-      border-radius: 0 4px 4px 0;
-      transition: transform 0.2s ease;
-    }
+.corner-card {
+  background: var(--bg2);
+  border-left: 2px solid var(--ink);
+  padding: 32px 36px;
+  border-radius: 0 4px 4px 0;
+  transition: transform 0.2s ease;
+}
 
-    .invitation .corner-card:hover {
-      transform: translateX(4px);
-    }
+.corner-card:hover {
+  transform: translateX(4px);
+}
 
-    .invitation .corner-card .corner-name {
-      font-family: 'Crimson Pro', serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--inv-ink);
-      margin-bottom: 8px;
-      letter-spacing: 0.05em;
-    }
+.corner-card .corner-name {
+  font-family: 'Crimson Pro', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
 
-    .invitation .corner-card .corner-desc {
-      font-size: 19px;
-      color: var(--inv-muted);
-      line-height: 1.7;
-    }
+.corner-card .corner-desc {
+  font-size: 19px;
+  color: var(--muted);
+  line-height: 1.7;
+}
 
-    /* === Highlight Block === */
-    .invitation .highlight-block {
-      background: var(--inv-bg2);
-      border-radius: 12px;
-      padding: 40px 48px;
-      margin: 40px 0;
-      position: relative;
-      box-shadow: 0 2px 12px var(--inv-paper-shadow);
-    }
+/* === Highlight Block === */
+.highlight-block {
+  background: var(--bg2);
+  border-radius: 12px;
+  padding: 40px 48px;
+  margin: 40px 0;
+  position: relative;
+  box-shadow: 0 2px 12px var(--paper-shadow);
+}
 
-    .invitation .highlight-block::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--inv-ink), transparent);
-      border-radius: 12px 12px 0 0;
-    }
+.highlight-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ink), transparent);
+  border-radius: 12px 12px 0 0;
+}
 
-    .invitation .highlight-block .highlight-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--inv-accent2);
-      margin-bottom: 16px;
-    }
+.highlight-block .highlight-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent2);
+  margin-bottom: 16px;
+}
 
-    .invitation .highlight-block p {
-      font-size: 19px;
-      line-height: 1.9;
-      color: var(--inv-ink-soft);
-      margin-bottom: 12px;
-    }
+.highlight-block p {
+  font-size: 19px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
 
-    /* === Media Mentions === */
-    .invitation .media-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin: 32px 0;
-      justify-content: center;
-    }
+/* === Media Mentions === */
+.media-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 32px 0;
+  justify-content: center;
+}
 
-    .invitation .media-badge {
-      background: transparent;
-      border: 1px solid var(--inv-ink);
-      border-radius: 30px;
-      padding: 12px 28px;
-      font-family: 'Crimson Pro', serif;
-      font-size: 18px;
-      color: var(--inv-ink);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
+.media-badge {
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
 
-    .invitation .media-badge.primary {
-      background: var(--inv-ink);
-      color: #fff;
-      border-color: var(--inv-ink);
-    }
+.media-badge.primary {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
 
-    /* === Ornamental Divider === */
-    .invitation .ornament {
-      text-align: center;
-      margin: 60px 0;
-      color: var(--inv-accent);
-    }
+/* === Ornamental Divider === */
+.ornament {
+  text-align: center;
+  margin: 60px 0;
+  color: var(--accent);
+}
 
-    .invitation .ornament svg {
-      width: 120px;
-      height: 24px;
-    }
+.ornament svg {
+  width: 120px;
+  height: 24px;
+}
 
-    /* === Closing === */
-    .invitation .closing {
-      text-align: center;
-      padding: 80px 0 40px;
-    }
+/* === Closing Section === */
+.closing {
+  text-align: center;
+  padding: 80px 0 40px;
+}
 
-    .invitation .closing-text {
-      font-family: 'Crimson Pro', serif;
-      font-size: 24px;
-      line-height: 1.8;
-      color: var(--inv-ink-soft);
-      font-style: italic;
-      max-width: 640px;
-      margin: 0 auto 48px;
-    }
+.closing-text {
+  font-family: 'Crimson Pro', serif;
+  font-size: 24px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  font-style: italic;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
 
-    .invitation .closing-highlight {
-      font-family: 'Crimson Pro', serif;
-      font-size: 30px;
-      font-weight: 700;
-      color: var(--inv-accent2);
-      margin: 48px 0;
-      line-height: 1.5;
-    }
+.closing-highlight {
+  font-family: 'Crimson Pro', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--accent2);
+  margin: 48px 0;
+  line-height: 1.5;
+}
 
-    /* === Signature === */
-    .invitation .signature {
-      text-align: center;
-      margin-top: 60px;
-      padding-top: 40px;
-      border-top: 1px solid var(--inv-rule);
-    }
+/* === Signature === */
+.signature {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
 
-    .invitation .signature-name {
-      font-family: 'Crimson Pro', serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--inv-ink);
-      letter-spacing: 0.2em;
-      padding-left: 0.2em;
-      margin-bottom: 12px;
-    }
+.signature-name {
+  font-family: 'Crimson Pro', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.2em;
+  padding-left: 0.2em;
+  margin-bottom: 12px;
+}
 
-    .invitation .signature-title {
-      font-size: 18px;
-      color: var(--inv-muted);
-      margin-bottom: 8px;
-    }
+.signature-title {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
 
-    .invitation .signature-date {
-      font-family: 'Italiana', serif;
-      font-size: 18px;
-      color: var(--inv-accent);
-      letter-spacing: 0.15em;
-    }
+.signature-date {
+  font-family: 'Italiana', serif;
+  font-size: 18px;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+}
 
-    /* === Invitation Footer === */
-    .invitation .inv-footer {
-      text-align: center;
-      padding: 60px 0 80px;
-      margin-top: 40px;
-    }
+/* === Footer === */
+.footer {
+  text-align: center;
+  padding: 60px 0 80px;
+  margin-top: 40px;
+}
 
-    .invitation .inv-footer-line {
-      width: 200px;
-      height: 1px;
-      background: var(--inv-rule);
-      margin: 0 auto 24px;
-    }
+.footer-line {
+  width: 200px;
+  height: 1px;
+  background: var(--rule);
+  margin: 0 auto 24px;
+}
 
-    .invitation .inv-footer-text {
-      font-family: 'Italiana', serif;
-      font-size: 16px;
-      letter-spacing: 0.3em;
-      color: var(--inv-muted);
-      text-transform: uppercase;
-      padding-left: 0.3em;
-    }
+.footer-text {
+  font-family: 'Italiana', serif;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding-left: 0.3em;
+}
 
-    /* === Responsive === */
-    @media (max-width: 768px) {
-      .invitation-container { padding: 0 24px; }
-      .invitation .inv-hero { padding: 100px 0 60px; }
-      .invitation .inv-hero-title { font-size: 56px; }
-      .invitation .inv-hero-subtitle { font-size: 24px; }
-      .invitation .section-title { font-size: 32px; }
-      .invitation .body-text { font-size: 18px; }
-      .invitation .pull-quote { font-size: 22px; padding: 24px 32px; }
-      .invitation .closing-highlight { font-size: 24px; }
-      .invitation .highlight-block { padding: 28px 24px; }
-    }
+/* === Responsive === */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+  .hero {
+    padding: 80px 0 60px;
+  }
+  .hero-title {
+    font-size: 56px;
+  }
+  .hero-subtitle {
+    font-size: 24px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  .body-text {
+    font-size: 18px;
+  }
+  .pull-quote {
+    font-size: 22px;
+    padding: 24px 32px;
+  }
+  .closing-highlight {
+    font-size: 24px;
+  }
+  .highlight-block {
+    padding: 28px 24px;
+  }
+}
 
-    @media (max-width: 480px) {
-      .invitation .inv-hero-title { font-size: 42px; }
-      .invitation .inv-hero-subtitle { font-size: 20px; }
-      .invitation .section-title { font-size: 26px; }
-      .invitation .body-text { font-size: 17px; }
-      .invitation .pull-quote { font-size: 19px; padding: 20px 16px; }
-    }
-  </style>
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 42px;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+  }
+  .section-title {
+    font-size: 26px;
+  }
+  .body-text {
+    font-size: 17px;
+  }
+  .pull-quote {
+    font-size: 19px;
+    padding: 20px 16px;
+  }
+}
+  <meta name="description" content="时间旅人文艺综合社区内测用户邀请函。面向所有在忙碌缝隙里仍然想要认真感受生活的人。">
+  <link rel="canonical" href="https://xn--gmqq57cget97q.cn/invitation.html">
+  <meta property="og:title" content="时间旅人 · 内测用户邀请函">
+  <meta property="og:description" content="时间旅人文艺综合社区内测用户邀请函。面向所有在忙碌缝隙里仍然想要认真感受生活的人。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://xn--gmqq57cget97q.cn/invitation.html">
+  <meta property="og:image" content="https://xn--gmqq57cget97q.cn/images/dawn-street.png">
+  <meta property="og:site_name" content="时间旅人">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="时间旅人 · 内测用户邀请函">
+  <meta name="twitter:description" content="时间旅人文艺综合社区内测用户邀请函。面向所有在忙碌缝隙里仍然想要认真感受生活的人。">
+  <meta name="twitter:image" content="https://xn--gmqq57cget97q.cn/images/dawn-street.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"时间旅人 · 内测用户邀请函","url":"https://xn--gmqq57cget97q.cn/invitation.html","isPartOf":{"@type":"WebSite","name":"时间旅人","url":"https://xn--gmqq57cget97q.cn/"}}</script>
+</style>
 </head>
-<body class="grain">
+<body>
+<a href="index.html" style="position:fixed;top:24px;left:32px;z-index:100;font-family:'Crimson Pro',serif;font-size:15px;color:#8a8a8a;text-decoration:none;letter-spacing:0.1em;display:flex;align-items:center;gap:8px;">← 时间旅人</a>
 
-  <div class="cursor-dot"></div>
+<div class="container">
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container-wide px-page">
-      <div class="site-header-inner">
-        <a href="index.html" class="logo-mark" data-magnetic>
-          <span class="dot"></span>
-          <span class="name">时间旅人</span>
-        </a>
-        <nav class="site-nav">
-          <a href="index.html" class="link-underline" data-magnetic>文章</a>
-          <a href="creators.html" class="link-underline" data-magnetic>创作者</a>
-          <a href="invitation.html" class="link-underline" data-magnetic>邀请函</a>
-          <a href="index.html#about" class="link-underline" data-magnetic>关于</a>
-        </nav>
-      </div>
+  <!-- ========== HERO / COVER ========== -->
+  <section class="hero">
+    <div class="hero-eyebrow">Time Traveler</div>
+    <h1 class="hero-title">时间旅人</h1>
+    <div class="hero-subtitle">内测用户邀请函</div>
+    <div class="hero-divider">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
     </div>
-  </header>
+    <div class="hero-meta">致每一位认真感受生活的灵魂</div>
+    <div class="hero-date">2026 年 5 月</div>
+  </section>
 
-  <!-- 邀请函正文 -->
-  <div class="invitation">
-    <div class="invitation-container">
-
-      <!-- ========== HERO / COVER ========== -->
-      <section class="inv-hero">
-        <div class="inv-hero-eyebrow">Time Traveler</div>
-        <h1 class="inv-hero-title">时间旅人</h1>
-        <div class="inv-hero-subtitle">内测用户邀请函</div>
-        <div class="inv-hero-divider">
-          <div class="line"></div>
-          <div class="diamond"></div>
-          <div class="line"></div>
-        </div>
-        <div class="inv-hero-meta">致每一位认真感受生活的灵魂</div>
-        <div class="inv-hero-date">2026 年 5 月</div>
-      </section>
-
-      <!-- ========== ORNAMENTAL DIVIDER ========== -->
-      <div class="ornament">
-        <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
-          <circle cx="55" cy="12" r="2" fill="currentColor"/>
-          <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
-          <circle cx="65" cy="12" r="2" fill="currentColor"/>
-          <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <!-- ========== OPENING LETTER ========== -->
-      <section class="inv-section">
-        <div class="section-label">开篇</div>
-        <h2 class="section-title">诸位好</h2>
-
-        <p class="body-text drop-cap">
-          我叫古陵逝烟，是「时间旅人」文艺综合社区的创始人，内容涵盖文学、书法、绘画、摄影、音乐、心情与日常记录。它不是一个严肃的文学创作社区，也不是另一个算法驱动的内容平台。它是一个有文艺气质的生活记录空间，一个让表达回归本真的地方，一个浮躁世界里安放灵魂的角落。
-        </p>
-        <p class="body-text">
-          由我独立开发的时间旅人应用将于 6 月上线。它面向所有那些在忙碌缝隙里仍然想要认真感受生活的人——普通的打工人、职场人、高校学生，所有那些不想在朋友圈表演、不想被算法喂养、不想用数据衡量自己生活的人。以及在短视频和碎片信息横行的年代，依然愿意用文字、用笔墨、用色彩、用照片、用音乐去记录身边的人。
-        </p>
-        <p class="body-text">
-          在这个充满喧嚣、以效率为王的世界，我试图建造一处<strong>缓慢、安静、干净的角落</strong>。我们鼓励真实的表达，而不是为了迎合流量而异化的自我展示。在这里，你可以用你喜欢的方式记录生活——可以是一篇深思熟虑的散文，也可以是下班路上突然冒出的一句话；可以是一幅临帖的书法、一张随手的水彩；可以是精心拍摄的一张照片，也可以只是深夜听歌时随手的分享；可以是对社会现象的思考，也可以只是此刻无法命名的情绪。<strong>不需要哗众取宠，不需要炫耀辞藻。</strong>
-        </p>
-      </section>
-
-      <!-- ========== PULL QUOTE ========== -->
-      <div class="pull-quote">
-        你不必成为任何人，<br>
-        你只需要是你自己。
-      </div>
-
-      <!-- ========== WHY ========== -->
-      <section class="inv-section">
-        <div class="section-label">缘起</div>
-        <h2 class="section-title">关于我为什么做时间旅人</h2>
-
-        <p class="body-text">
-          在这个碎片化、商业化严重的当今时代，一切价值似乎都以金钱来衡量。一个人的成功与否，看他赚了多少钱；一段经历值不值得，看它能不能变成一条高赞的内容；一篇文章的好坏，看它带来了多少流量。我们好像已经默认了一种逻辑——<strong>「不能变现」等于「没有价值」</strong>。
-        </p>
-        <p class="body-text">
-          这种逻辑最可怕的地方，不在于它剥夺了什么，而在于它让人主动放弃。当一切都可以被标价的时候，我们开始怀疑那些无法被标价的东西是否还值得坚持——安静地读一本书，认真地记一段心情，花时间感受一次日落。这些事不赚钱，不涨粉，不能写进简历，于是越来越少的人愿意去做。
-        </p>
-        <p class="body-text">
-          但我想，<strong>总得有人做这些「没有用」的事。</strong>总得有人相信，一个人在深夜随手写下的一段话，即便没有任何人点赞，它本身也是有意义的。总得有人相信，表达不该只是付费专栏里的商品，不该只是短视频脚本里的工具，不该只是简历上一个用来展示「我也有文化」的标签。
-        </p>
-        <p class="body-text">
-          而且打开任何一个内容平台，我看到的不再是「有人在说什么」，而是「算法想让谁说什么」。标题越来越相似，情绪越来越标准化，连「真实感」本身都被批量生产了。我们以为自己有无数选择，但所有信息流都在把我们推向同一个方向。
-        </p>
-        <p class="body-text">
-          我们的民族曾经是文学大国。唐诗宋词、明清散文曾在民间广泛流传，贩夫走卒皆能吟诵几句，车夫船娘也会哼唱几句曲词。而如今，文字变成了少数人的事。短视频在喂养我们的感官，快餐式的信息在替代我们的思考，功利的阅读理解在摧毁我们对文字的感受力。我们越来越像一个只会识字却不会理解的文盲——能读懂说明书，却读不进一首诗；能刷完一百条短视频，却看不下去一段散文。<strong>这不是个人的退化，是整个时代的退化。</strong>但文字曾经属于大多数人，它不该只剩下这么少的人还在坚持。
-        </p>
-
-        <div class="pull-quote">
-          我要做的就是这种抵抗，<br>
-          而且我知道，力量之小，蜉蝣撼树。<br>
-          但是我依然选择硬刚。
-        </div>
-      </section>
-
-      <!-- ========== ORNAMENTAL DIVIDER ========== -->
-      <div class="ornament">
-        <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
-          <circle cx="55" cy="12" r="2" fill="currentColor"/>
-          <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
-          <circle cx="65" cy="12" r="2" fill="currentColor"/>
-          <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <!-- ========== ABOUT ========== -->
-      <section class="inv-section">
-        <div class="section-label">理念</div>
-        <h2 class="section-title">关于时间旅人</h2>
-
-        <p class="body-text">
-          它不是另一个内容平台，而是对「表达」这件事的重新理解。
-        </p>
-        <p class="body-text">
-          这个时代最悲哀的误会是：把所有的自我表达都等同于「产出内容」。于是我们变成了内容创作者，我们的生活变成了素材库，我们的喜怒哀乐变成了算法的饲料。我觉得这种降格是不可接受的——表达从来就不只是一门手艺、一种工具，它是一个人向内审视、与自己对话的方式。一个人在深夜写下几行字，他不是在「产出内容」，他是在试图理解自己经历过的那些无法言说的时刻。
-        </p>
-        <p class="body-text">
-          <strong>时间旅人想守护的，正是这种「为自己而表达」的自由与尊严。</strong>
-        </p>
-        <p class="body-text">
-          所以我们没有算法推荐，因为一段文字的价值不该由点击率来定义。我们相信偶然——你不知道下一页会遇见谁，但这种不确定性本身就是最迷人的地方。我们也没有上瘾机制，没有红点催促你打开，没有进度条暗示你「还有更多没看」。内容可以慢慢写，回复可以慢慢等。在这个一切都要求你「更快」的时代，允许一个人慢下来，本身就是一种善意。
-        </p>
-        <p class="body-text">
-          平台上有五个角落，容纳不同形式的表达：
-        </p>
-
-        <!-- Five Corners Cards -->
-        <div class="corners-grid">
-          <div class="corner-card">
-            <div class="corner-name">时光酒馆</div>
-            <div class="corner-desc">放散文随笔与深度思考</div>
-          </div>
-          <div class="corner-card">
-            <div class="corner-name">浮光掠影</div>
-            <div class="corner-desc">存你镜头里捕捉到的画面</div>
-          </div>
-          <div class="corner-card">
-            <div class="corner-name">听风入枕</div>
-            <div class="corner-desc">分享深夜反复听的旋律</div>
-          </div>
-          <div class="corner-card">
-            <div class="corner-name">字里行间</div>
-            <div class="corner-desc">记录你和阅读之间的一切缘分</div>
-          </div>
-          <div class="corner-card">
-            <div class="corner-name">杂谈笔记</div>
-            <div class="corner-desc">存你的思想，对世界的观察与吐槽</div>
-          </div>
-        </div>
-
-        <p class="body-text">
-          它们不是为了「提升用户活跃度」而设计的功能模块，而是<strong>五个可以让你把心里那些无处安放的东西轻轻放下来的地方。</strong>
-        </p>
-      </section>
-
-      <!-- ========== USER STORY ========== -->
-      <section class="inv-section">
-        <p class="body-text">
-          开发过程中，有位内测用户跟我说，他已经很久没在任何平台上安安静静地表达过自己了——因为每次下笔，都会下意识地去想「这样发有没有人看」。他说在时间旅人上，他第一次忘了这件事。
-        </p>
-
-        <div class="pull-quote">
-          如果一个人拿起笔的时候不再需要讨好任何人——<br>
-          不再需要迎合算法的偏好，<br>
-          不再需要表演自己都不信的情绪，<br>
-          不再需要用数据来证明自己的表达有意义——<br>
-          那么表达就恢复了他本来的样子。
-        </div>
-      </section>
-
-      <!-- ========== ORNAMENTAL DIVIDER ========== -->
-      <div class="ornament">
-        <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
-          <circle cx="55" cy="12" r="2" fill="currentColor"/>
-          <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
-          <circle cx="65" cy="12" r="2" fill="currentColor"/>
-          <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <!-- ========== WHAT WE OFFER ========== -->
-      <section class="inv-section">
-        <div class="section-label">承诺</div>
-        <h2 class="section-title">我们能提供什么</h2>
-
-        <div class="highlight-block">
-          <div class="highlight-title">媒体合作</div>
-          <p>
-            创始人古陵逝烟正在积极与多家杂志社、报社沟通合作。目前，正在与国内头部文学期刊《江南》及《钱江晚报文艺副刊》进行意向沟通。
-          </p>
-        </div>
-
-        <div class="media-list">
-          <span class="media-badge primary">《江南》意向沟通中</span>
-          <span class="media-badge">《钱江晚报文艺副刊》意向沟通中</span>
-        </div>
-
-        <p class="body-text">
-          我们相信，在这里认真写下的一段文字、一篇随笔、一幅书法作品、一张绘画、一个关于阅读与思考的故事，不该只停留在一个小屏幕里。好的文字和图像值得更大的舞台——<strong>被印刷在纸上，被摆进报刊亭，被一个在午后阳光下翻阅杂志的人读到。</strong>
-        </p>
-        <p class="body-text">
-          我们不承诺每个人都有机会上刊——那不现实。但我们会认真对待这里涌现出的每一篇有温度的作品，把其中真正打动我们的，推荐给编辑、推荐给读者、推荐给那些还不知道时间旅人存在的人。让用心表达的人知道：你的文字，你的笔墨，你的色彩，值得被更广阔的世界看见。
-        </p>
-
-        <div class="pull-quote">
-          这是一种笨拙的浪漫。<br>
-          在算法分发和流量变现的年代，<br>
-          去跟传统媒体谈合作、谈刊登，<br>
-          听起来像一种逆行。<br>
-          但我们觉得，这正是时间旅人应该做的事——<br>
-          为认真表达的人，多争取一点被认真阅读的机会。
-        </div>
-      </section>
-
-      <!-- ========== ORNAMENTAL DIVIDER ========== -->
-      <div class="ornament">
-        <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
-          <circle cx="55" cy="12" r="2" fill="currentColor"/>
-          <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
-          <circle cx="65" cy="12" r="2" fill="currentColor"/>
-          <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <!-- ========== CLOSING ========== -->
-      <section class="closing">
-        <div class="section-label">最后</div>
-        <h2 class="section-title">写在最后</h2>
-
-        <p class="closing-text">
-          时间旅人的理念是：希望每一个热爱表达、愿意感受的灵魂，都能在这里找到属于自己的位置。若干年后，那些在这里记录的文字、分享的照片、留下的句子、写下的笔墨、画出的色彩，能成为你走向真实世界的勇气——去经历，去感受，去让生命本身成为最动人的记录。
-        </p>
-
-        <div class="closing-highlight">
-          这是时间旅人最大的存在价值。
-        </div>
-
-        <!-- Signature -->
-        <div class="signature">
-          <div class="signature-name">古 陵 逝 烟</div>
-          <div class="signature-title">时间旅人文艺社区创始人</div>
-          <div class="signature-date">2026 年 6 月</div>
-        </div>
-      </section>
-
-      <!-- ========== INVITATION FOOTER ========== -->
-      <footer class="inv-footer">
-        <div class="inv-footer-line"></div>
-        <div class="inv-footer-text">Time Traveler</div>
-      </footer>
-
-    </div>
+  <!-- ========== ORNAMENTAL DIVIDER ========== -->
+  <div class="ornament">
+    <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
+      <circle cx="55" cy="12" r="2" fill="currentColor"/>
+      <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
+      <circle cx="65" cy="12" r="2" fill="currentColor"/>
+      <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
+    </svg>
   </div>
 
-  <!-- Blog Footer -->
-  <footer class="site-footer">
-    <div class="container-wide px-page" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">
-            <span class="dot"></span>
-            <span class="name">时间旅人</span>
-          </div>
-          <p class="footer-desc">在时间的褶皱里，收集那些值得被记住的瞬间。</p>
-        </div>
-        <div class="footer-right">
-          <p class="year">© 2026</p>
-          <p>以文字丈量时间</p>
-        </div>
+  <!-- ========== OPENING LETTER ========== -->
+  <section class="section">
+    <div class="section-label">开篇</div>
+    <h2 class="section-title">诸位好</h2>
+
+    <p class="body-text drop-cap">
+      我叫古陵逝烟，是「时间旅人」文艺综合社区的创始人，内容涵盖文学、书法、绘画、摄影、音乐、心情与日常记录。它不是一个严肃的文学创作社区，也不是另一个算法驱动的内容平台。它是一个有文艺气质的生活记录空间，一个让表达回归本真的地方，一个浮躁世界里安放灵魂的角落。
+    </p>
+    <p class="body-text">
+      由我独立开发的时间旅人应用将于 6 月上线。它面向所有那些在忙碌缝隙里仍然想要认真感受生活的人——普通的打工人、职场人、高校学生，所有那些不想在朋友圈表演、不想被算法喂养、不想用数据衡量自己生活的人。以及在短视频和碎片信息横行的年代，依然愿意用文字、用笔墨、用色彩、用照片、用音乐去记录身边的人。
+    </p>
+    <p class="body-text">
+      在这个充满喧嚣、以效率为王的世界，我试图建造一处<strong>缓慢、安静、干净的角落</strong>。我们鼓励真实的表达，而不是为了迎合流量而异化的自我展示。在这里，你可以用你喜欢的方式记录生活——可以是一篇深思熟虑的散文，也可以是下班路上突然冒出的一句话；可以是一幅临帖的书法、一张随手的水彩；可以是精心拍摄的一张照片，也可以只是深夜听歌时随手的分享；可以是对社会现象的思考，也可以只是此刻无法命名的情绪。<strong>不需要哗众取宠，不需要炫耀辞藻。</strong>
+    </p>
+  </section>
+
+  <!-- ========== PULL QUOTE ========== -->
+  <div class="pull-quote">
+    你不必成为任何人，<br>
+    你只需要是你自己。
+  </div>
+
+  <!-- ========== WHY ========== -->
+  <section class="section">
+    <div class="section-label">缘起</div>
+    <h2 class="section-title">关于我为什么做时间旅人</h2>
+
+    <p class="body-text">
+      在这个碎片化、商业化严重的当今时代，一切价值似乎都以金钱来衡量。一个人的成功与否，看他赚了多少钱；一段经历值不值得，看它能不能变成一条高赞的内容；一篇文章的好坏，看它带来了多少流量。我们好像已经默认了一种逻辑——<strong>「不能变现」等于「没有价值」</strong>。
+    </p>
+    <p class="body-text">
+      这种逻辑最可怕的地方，不在于它剥夺了什么，而在于它让人主动放弃。当一切都可以被标价的时候，我们开始怀疑那些无法被标价的东西是否还值得坚持——安静地读一本书，认真地记一段心情，花时间感受一次日落。这些事不赚钱，不涨粉，不能写进简历，于是越来越少的人愿意去做。
+    </p>
+    <p class="body-text">
+      但我想，<strong>总得有人做这些「没有用」的事。</strong>总得有人相信，一个人在深夜随手写下的一段话，即便没有任何人点赞，它本身也是有意义的。总得有人相信，表达不该只是付费专栏里的商品，不该只是短视频脚本里的工具，不该只是简历上一个用来展示「我也有文化」的标签。
+    </p>
+    <p class="body-text">
+      而且打开任何一个内容平台，我看到的不再是「有人在说什么」，而是「算法想让谁说什么」。标题越来越相似，情绪越来越标准化，连「真实感」本身都被批量生产了。我们以为自己有无数选择，但所有信息流都在把我们推向同一个方向。
+    </p>
+    <p class="body-text">
+      我们的民族曾经是文学大国。唐诗宋词、明清散文曾在民间广泛流传，贩夫走卒皆能吟诵几句，车夫船娘也会哼唱几句曲词。而如今，文字变成了少数人的事。短视频在喂养我们的感官，快餐式的信息在替代我们的思考，功利的阅读理解在摧毁我们对文字的感受力。我们越来越像一个只会识字却不会理解的文盲——能读懂说明书，却读不进一首诗；能刷完一百条短视频，却看不下去一段散文。<strong>这不是个人的退化，是整个时代的退化。</strong>但文字曾经属于大多数人，它不该只剩下这么少的人还在坚持。
+    </p>
+
+    <div class="pull-quote">
+      我要做的就是这种抵抗，<br>
+      而且我知道，力量之小，蜉蝣撼树。<br>
+      但是我依然选择硬刚。
+    </div>
+  </section>
+
+  <!-- ========== ORNAMENTAL DIVIDER ========== -->
+  <div class="ornament">
+    <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
+      <circle cx="55" cy="12" r="2" fill="currentColor"/>
+      <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
+      <circle cx="65" cy="12" r="2" fill="currentColor"/>
+      <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section">
+    <div class="section-label">理念</div>
+    <h2 class="section-title">关于时间旅人</h2>
+
+    <p class="body-text">
+      它不是另一个内容平台，而是对「表达」这件事的重新理解。
+    </p>
+    <p class="body-text">
+      这个时代最悲哀的误会是：把所有的自我表达都等同于「产出内容」。于是我们变成了内容创作者，我们的生活变成了素材库，我们的喜怒哀乐变成了算法的饲料。我觉得这种降格是不可接受的——表达从来就不只是一门手艺、一种工具，它是一个人向内审视、与自己对话的方式。一个人在深夜写下几行字，他不是在「产出内容」，他是在试图理解自己经历过的那些无法言说的时刻。
+    </p>
+    <p class="body-text">
+      <strong>时间旅人想守护的，正是这种「为自己而表达」的自由与尊严。</strong>
+    </p>
+    <p class="body-text">
+      所以我们没有算法推荐，因为一段文字的价值不该由点击率来定义。我们相信偶然——你不知道下一页会遇见谁，但这种不确定性本身就是最迷人的地方。我们也没有上瘾机制，没有红点催促你打开，没有进度条暗示你「还有更多没看」。内容可以慢慢写，回复可以慢慢等。在这个一切都要求你「更快」的时代，允许一个人慢下来，本身就是一种善意。
+    </p>
+    <p class="body-text">
+      平台上有五个角落，容纳不同形式的表达：
+    </p>
+
+    <!-- Five Corners Cards -->
+    <div class="corners-grid">
+      <div class="corner-card">
+        <div class="corner-name">时光酒馆</div>
+        <div class="corner-desc">放散文随笔与深度思考</div>
+      </div>
+      <div class="corner-card">
+        <div class="corner-name">浮光掠影</div>
+        <div class="corner-desc">存你镜头里捕捉到的画面</div>
+      </div>
+      <div class="corner-card">
+        <div class="corner-name">听风入枕</div>
+        <div class="corner-desc">分享深夜反复听的旋律</div>
+      </div>
+      <div class="corner-card">
+        <div class="corner-name">字里行间</div>
+        <div class="corner-desc">记录你和阅读之间的一切缘分</div>
+      </div>
+      <div class="corner-card">
+        <div class="corner-name">杂谈笔记</div>
+        <div class="corner-desc">存你的思想，对世界的观察与吐槽</div>
       </div>
     </div>
+
+    <p class="body-text">
+      它们不是为了「提升用户活跃度」而设计的功能模块，而是<strong>五个可以让你把心里那些无处安放的东西轻轻放下来的地方。</strong>
+    </p>
+  </section>
+
+  <!-- ========== USER STORY ========== -->
+  <section class="section">
+    <p class="body-text">
+      开发过程中，有位内测用户跟我说，他已经很久没在任何平台上安安静静地表达过自己了——因为每次下笔，都会下意识地去想「这样发有没有人看」。他说在时间旅人上，他第一次忘了这件事。
+    </p>
+
+    <div class="pull-quote">
+      如果一个人拿起笔的时候不再需要讨好任何人——<br>
+      不再需要迎合算法的偏好，<br>
+      不再需要表演自己都不信的情绪，<br>
+      不再需要用数据来证明自己的表达有意义——<br>
+      那么表达就恢复了他本来的样子。
+    </div>
+  </section>
+
+  <!-- ========== ORNAMENTAL DIVIDER ========== -->
+  <div class="ornament">
+    <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
+      <circle cx="55" cy="12" r="2" fill="currentColor"/>
+      <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
+      <circle cx="65" cy="12" r="2" fill="currentColor"/>
+      <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- ========== WHAT WE OFFER ========== -->
+  <section class="section">
+    <div class="section-label">承诺</div>
+    <h2 class="section-title">我们能提供什么</h2>
+
+    <div class="highlight-block">
+      <div class="highlight-title">媒体合作</div>
+      <p>
+        创始人古陵逝烟正在积极与多家杂志社、报社沟通合作。目前，正在与国内头部文学期刊《江南》及《钱江晚报文艺副刊》进行意向沟通。
+      </p>
+    </div>
+
+    <div class="media-list">
+      <span class="media-badge primary">《江南》意向沟通中</span>
+      <span class="media-badge">《钱江晚报文艺副刊》意向沟通中</span>
+    </div>
+
+    <p class="body-text">
+      我们相信，在这里认真写下的一段文字、一篇随笔、一幅书法作品、一张绘画、一个关于阅读与思考的故事，不该只停留在一个小屏幕里。好的文字和图像值得更大的舞台——<strong>被印刷在纸上，被摆进报刊亭，被一个在午后阳光下翻阅杂志的人读到。</strong>
+    </p>
+    <p class="body-text">
+      我们不承诺每个人都有机会上刊——那不现实。但我们会认真对待这里涌现出的每一篇有温度的作品，把其中真正打动我们的，推荐给编辑、推荐给读者、推荐给那些还不知道时间旅人存在的人。让用心表达的人知道：你的文字，你的笔墨，你的色彩，值得被更广阔的世界看见。
+    </p>
+
+    <div class="pull-quote">
+      这是一种笨拙的浪漫。<br>
+      在算法分发和流量变现的年代，<br>
+      去跟传统媒体谈合作、谈刊登，<br>
+      听起来像一种逆行。<br>
+      但我们觉得，这正是时间旅人应该做的事——<br>
+      为认真表达的人，多争取一点被认真阅读的机会。
+    </div>
+  </section>
+
+  <!-- ========== ORNAMENTAL DIVIDER ========== -->
+  <div class="ornament">
+    <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1"/>
+      <circle cx="55" cy="12" r="2" fill="currentColor"/>
+      <path d="M60 6 L66 12 L60 18 L54 12 Z" fill="currentColor"/>
+      <circle cx="65" cy="12" r="2" fill="currentColor"/>
+      <line x1="75" y1="12" x2="120" y2="12" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- ========== CLOSING ========== -->
+  <section class="closing">
+    <div class="section-label">最后</div>
+    <h2 class="section-title">写在最后</h2>
+
+    <p class="closing-text">
+      时间旅人的理念是：希望每一个热爱表达、愿意感受的灵魂，都能在这里找到属于自己的位置。若干年后，那些在这里记录的文字、分享的照片、留下的句子、写下的笔墨、画出的色彩，能成为你走向真实世界的勇气——去经历，去感受，去让生命本身成为最动人的记录。
+    </p>
+
+    <div class="closing-highlight">
+      这是时间旅人最大的存在价值。
+    </div>
+
+    <!-- Signature -->
+    <div class="signature">
+      <div class="signature-name">古 陵 逝 烟</div>
+      <div class="signature-title">时间旅人文艺社区创始人</div>
+      <div class="signature-date">2026 年 6 月</div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-line"></div>
+    <div class="footer-text">Time Traveler</div>
   </footer>
 
-  <script src="js/main.js"></script>
+</div>
+
+
+<script>
+if (location.protocol === 'http:' && location.hostname !== 'localhost') {
+  location.replace(location.href.replace('http:', 'https:'));
+}
+</script>
 </body>
 </html>
