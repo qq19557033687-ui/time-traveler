@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正在跳转 · 时间旅人</title>
+<script>
+(function() {
+  var host = window.location.hostname;
+  var path = window.location.pathname + window.location.search + window.location.hash;
+
+  // 如果是 .cn 域名，跳转到 .com
+  if (host.indexOf('xn--gmqq57cget97q.cn') !== -1 || host.indexOf('时间旅人.cn') !== -1) {
+    window.location.replace('https://时间旅人.com' + path);
+    return;
+  }
+
+  // 如果是其他 404，跳转到首页
+  window.location.replace('https://时间旅人.com/');
+})();
+</script>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+.container { padding: 2rem; }
+h1 { font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; }
+p { color: #888; font-size: 0.875rem; }
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1><span class="dot"></span>时间旅人</h1>
+  <p>正在跳转到新域名…</p>
+</div>
+</body>
+</html>
