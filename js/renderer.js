@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 时间旅人 · 文章渲染器
  * 动态加载 Markdown 内容并渲染为文章页面
  * 支持 YAML frontmatter 解析 + marked.js markdown 渲染
@@ -109,7 +109,7 @@
         'name': '时间旅人',
         'logo': {
           '@type': 'ImageObject',
-          'url': 'https://xn--gmqq57cget97q.cn/images/og-cover.jpg'
+          'url': 'https://xn--gmqq57cget97q.com/images/og-cover.jpg'
         }
       }
     };
